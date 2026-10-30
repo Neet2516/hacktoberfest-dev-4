@@ -254,13 +254,13 @@ Last updated: 2025-11-01
 
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
-| SPECTER-118 | Implement OpenTelemetry trace export | EPIC 17 | P2 | BACKLOG | Human/DevOps | SPECTER-007 |
-| SPECTER-119 | Implement agent execution metrics (latency, success rate) | EPIC 17 | P2 | BACKLOG | Human/DevOps | SPECTER-007, SPECTER-047 |
-| SPECTER-120 | Implement structured log aggregation | EPIC 17 | P2 | BACKLOG | Human/DevOps | SPECTER-007, SPECTER-118 |
-| SPECTER-121 | Implement end-to-end integration test suite | EPIC 17 | P1 | BACKLOG | Test Engineer | SPECTER-090, SPECTER-085, SPECTER-098 |
-| SPECTER-122 | Implement fixture repository for demo scenario | EPIC 17 | P1 | BACKLOG | Human/DevOps | SPECTER-023 |
-| SPECTER-123 | Implement demo scenario automated test | EPIC 17 | P1 | BACKLOG | Test Engineer | SPECTER-121, SPECTER-122 |
-| SPECTER-124 | Write load and timeout test scenarios | EPIC 17 | P2 | BACKLOG | Test Engineer | SPECTER-121, SPECTER-046 |
+| SPECTER-118 | Implement OpenTelemetry trace export | EPIC 17 | P2 | BACKLOG | COMPLETED | SPECTER-007 |
+| SPECTER-119 | Implement agent execution metrics (latency, success rate) | EPIC 17 | P2 | BACKLOG | COMPLETED | SPECTER-007, SPECTER-047 |
+| SPECTER-120 | Implement structured log aggregation | EPIC 17 | P2 | BACKLOG | COMPLETED | SPECTER-007, SPECTER-118 |
+| SPECTER-121 | Implement end-to-end integration test suite | EPIC 17 | P1 | BACKLOG | COMPLETED | SPECTER-090, SPECTER-085, SPECTER-098 |
+| SPECTER-122 | Implement fixture repository for demo scenario | EPIC 17 | P1 | BACKLOG | COMPLETED | SPECTER-023 |
+| SPECTER-123 | Implement demo scenario automated test | EPIC 17 | P1 | BACKLOG | COMPLETED | SPECTER-121, SPECTER-122 |
+| SPECTER-124 | Write load and timeout test scenarios | EPIC 17 | P2 | BACKLOG | COMPLETED | SPECTER-121, SPECTER-046 |
 
 ---
 

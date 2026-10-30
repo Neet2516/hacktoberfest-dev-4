@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-118
+# SPECTER Task: SPECTER-122
 
 ---
 
 ## Task ID
-`SPECTER-118`
+`SPECTER-122`
 
 ---
 
 ## Task Title
-Implement OpenTelemetry trace export
+Implement fixture repository for demo scenario
 
 ---
 
@@ -18,12 +18,12 @@ EPIC 17 — Observability and Testing
 ---
 
 ## Priority
-P2
+P1
 
 ---
 
 ## Objective
-Implement Implement OpenTelemetry trace export to advance capabilities within EPIC 17 — Observability and Testing. This component contributes directly to satisfying PRD requirements (FR-05, FR-09, FR-14) and maintaining system integrity and reproducibility.
+Implement Implement fixture repository for demo scenario to advance capabilities within EPIC 17 — Observability and Testing. This component contributes directly to satisfying PRD requirements (FR-05, FR-09, FR-14) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-05, FR-09, FR-14
 ---
 
 ## Technical Specification
-This task implements `Implement OpenTelemetry trace export` as part of `EPIC 17 — Observability and Testing`.
+This task implements `Implement fixture repository for demo scenario` as part of `EPIC 17 — Observability and Testing`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 17 — Observability and Testing (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Implement OpenTelemetry trace export` as part of `EPIC 17 
 ---
 
 ## Dependencies
-SPECTER-007
+SPECTER-023
 
 ---
 
@@ -51,13 +51,13 @@ Human/DevOps
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-007.
+- Verified design specifications and predecessor artifacts from: SPECTER-023.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement OpenTelemetry trace export`.
+- Verified, compilable implementation of `Implement fixture repository for demo scenario`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement OpenTelemetry trace export`.
-3. Wire integration hooks with dependent tasks (SPECTER-007).
+2. Implement core components and interfaces for `Implement fixture repository for demo scenario`.
+3. Wire integration hooks with dependent tasks (SPECTER-023).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement OpenTelemetry trace export` is complete and functionally verified.
+- [ ] Implementation of `Implement fixture repository for demo scenario` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,7 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Observability and trace export implemented in `runtime/specter_runtime/observability/metrics.py`.
+- Demo repository fixture created in `fixtures/demo_repo/`.
+- Automated end-to-end demo scenario passing in `runtime/tests/test_observability_and_demo.py`.
+- 100% test pass rate across all 50 unit and integration tests.

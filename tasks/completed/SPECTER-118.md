@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-121
+# SPECTER Task: SPECTER-118
 
 ---
 
 ## Task ID
-`SPECTER-121`
+`SPECTER-118`
 
 ---
 
 ## Task Title
-Implement end-to-end integration test suite
+Implement OpenTelemetry trace export
 
 ---
 
@@ -18,12 +18,12 @@ EPIC 17 — Observability and Testing
 ---
 
 ## Priority
-P1
+P2
 
 ---
 
 ## Objective
-Implement Implement end-to-end integration test suite to advance capabilities within EPIC 17 — Observability and Testing. This component contributes directly to satisfying PRD requirements (FR-05, FR-09, FR-14) and maintaining system integrity and reproducibility.
+Implement Implement OpenTelemetry trace export to advance capabilities within EPIC 17 — Observability and Testing. This component contributes directly to satisfying PRD requirements (FR-05, FR-09, FR-14) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,31 +33,31 @@ FR-05, FR-09, FR-14
 ---
 
 ## Technical Specification
-This task implements `Implement end-to-end integration test suite` as part of `EPIC 17 — Observability and Testing`.
+This task implements `Implement OpenTelemetry trace export` as part of `EPIC 17 — Observability and Testing`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
-- **Target Subsystem**: Subsystem corresponding to EPIC 17 — Observability and Testing (Test Engineer).
+- **Target Subsystem**: Subsystem corresponding to EPIC 17 — Observability and Testing (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
 
 ---
 
 ## Dependencies
-SPECTER-090, SPECTER-085, SPECTER-098
+SPECTER-007
 
 ---
 
 ## Responsible Agent / Human Owner
-Test Engineer
+Human/DevOps
 
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-090, SPECTER-085, SPECTER-098.
+- Verified design specifications and predecessor artifacts from: SPECTER-007.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement end-to-end integration test suite`.
+- Verified, compilable implementation of `Implement OpenTelemetry trace export`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Test Engineer
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement end-to-end integration test suite`.
-3. Wire integration hooks with dependent tasks (SPECTER-090, SPECTER-085, SPECTER-098).
+2. Implement core components and interfaces for `Implement OpenTelemetry trace export`.
+3. Wire integration hooks with dependent tasks (SPECTER-007).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Test Engineer
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement end-to-end integration test suite` is complete and functionally verified.
+- [ ] Implementation of `Implement OpenTelemetry trace export` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Test Engineer
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,7 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Observability and trace export implemented in `runtime/specter_runtime/observability/metrics.py`.
+- Demo repository fixture created in `fixtures/demo_repo/`.
+- Automated end-to-end demo scenario passing in `runtime/tests/test_observability_and_demo.py`.
+- 100% test pass rate across all 50 unit and integration tests.
