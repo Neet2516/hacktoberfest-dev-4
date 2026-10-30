@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-043
+# SPECTER Task: SPECTER-045
 
 ---
 
 ## Task ID
-`SPECTER-043`
+`SPECTER-045`
 
 ---
 
 ## Task Title
-Implement agent base class with lifecycle (init/execute/output/cleanup)
+Implement agent output schema validation
 
 ---
 
@@ -23,7 +23,7 @@ P1
 ---
 
 ## Objective
-Implement Implement agent base class with lifecycle (init/execute/output/cleanup) to advance capabilities within EPIC 06 — AI Agent Runtime. This component contributes directly to satisfying PRD requirements (FR-05, FR-06) and maintaining system integrity and reproducibility.
+Implement Implement agent output schema validation to advance capabilities within EPIC 06 — AI Agent Runtime. This component contributes directly to satisfying PRD requirements (FR-05, FR-06) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-05, FR-06
 ---
 
 ## Technical Specification
-This task implements `Implement agent base class with lifecycle (init/execute/output/cleanup)` as part of `EPIC 06 — AI Agent Runtime`.
+This task implements `Implement agent output schema validation` as part of `EPIC 06 — AI Agent Runtime`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 06 — AI Agent Runtime (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Implement agent base class with lifecycle (init/execute/ou
 ---
 
 ## Dependencies
-SPECTER-042
+SPECTER-043
 
 ---
 
@@ -51,13 +51,13 @@ Human/DevOps
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-042.
+- Verified design specifications and predecessor artifacts from: SPECTER-043.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement agent base class with lifecycle (init/execute/output/cleanup)`.
+- Verified, compilable implementation of `Implement agent output schema validation`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement agent base class with lifecycle (init/execute/output/cleanup)`.
-3. Wire integration hooks with dependent tasks (SPECTER-042).
+2. Implement core components and interfaces for `Implement agent output schema validation`.
+3. Wire integration hooks with dependent tasks (SPECTER-043).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement agent base class with lifecycle (init/execute/output/cleanup)` is complete and functionally verified.
+- [ ] Implementation of `Implement agent output schema validation` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Implementation verified and tested with automated unit test suites (`runtime/tests/`).
+- Subsystem test suites passing with 100% success rate (`python -m unittest discover -s runtime/tests`).
+- Codebase integrated cleanly with strict security boundaries and isolation.

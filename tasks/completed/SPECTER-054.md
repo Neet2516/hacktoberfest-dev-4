@@ -1,63 +1,63 @@
-# SPECTER Task: SPECTER-047
+# SPECTER Task: SPECTER-054
 
 ---
 
 ## Task ID
-`SPECTER-047`
+`SPECTER-054`
 
 ---
 
 ## Task Title
-Implement agent resource usage monitoring
+Write communication protocol tests
 
 ---
 
 ## Epic
-EPIC 06 — AI Agent Runtime
+EPIC 07 — Agent-to-Agent Communication
 
 ---
 
 ## Priority
-P2
+P1
 
 ---
 
 ## Objective
-Implement Implement agent resource usage monitoring to advance capabilities within EPIC 06 — AI Agent Runtime. This component contributes directly to satisfying PRD requirements (FR-05, FR-06) and maintaining system integrity and reproducibility.
+Implement Write communication protocol tests to advance capabilities within EPIC 07 — Agent-to-Agent Communication. This component contributes directly to satisfying PRD requirements (FR-06) and maintaining system integrity and reproducibility.
 
 ---
 
 ## PRD Requirement Reference
-FR-05, FR-06
+FR-06
 
 ---
 
 ## Technical Specification
-This task implements `Implement agent resource usage monitoring` as part of `EPIC 06 — AI Agent Runtime`.
+This task implements `Write communication protocol tests` as part of `EPIC 07 — Agent-to-Agent Communication`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
-- **Target Subsystem**: Subsystem corresponding to EPIC 06 — AI Agent Runtime (Human/DevOps).
+- **Target Subsystem**: Subsystem corresponding to EPIC 07 — Agent-to-Agent Communication (Test Engineer).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
 
 ---
 
 ## Dependencies
-SPECTER-043, SPECTER-007
+SPECTER-049, SPECTER-050, SPECTER-051, SPECTER-052
 
 ---
 
 ## Responsible Agent / Human Owner
-Human/DevOps
+Test Engineer
 
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-043, SPECTER-007.
+- Verified design specifications and predecessor artifacts from: SPECTER-049, SPECTER-050, SPECTER-051, SPECTER-052.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement agent resource usage monitoring`.
+- Verified, compilable implementation of `Write communication protocol tests`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,15 +65,15 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement agent resource usage monitoring`.
-3. Wire integration hooks with dependent tasks (SPECTER-043, SPECTER-007).
+2. Implement core components and interfaces for `Write communication protocol tests`.
+3. Wire integration hooks with dependent tasks (SPECTER-049, SPECTER-050, SPECTER-051, SPECTER-052).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
 ---
 
 ## Files Affected
-- Modules associated with EPIC 06 — AI Agent Runtime in backend, agent runtime, or frontend.
+- Modules associated with EPIC 07 — Agent-to-Agent Communication in backend, agent runtime, or frontend.
 - Corresponding test suites and documentation references.
 
 ---
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement agent resource usage monitoring` is complete and functionally verified.
+- [ ] Implementation of `Write communication protocol tests` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Implementation verified and tested with automated unit test suites (`runtime/tests/`).
+- Subsystem test suites passing with 100% success rate (`python -m unittest discover -s runtime/tests`).
+- Codebase integrated cleanly with strict security boundaries and isolation.

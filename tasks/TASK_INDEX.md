@@ -102,12 +102,12 @@ Last updated: 2025-11-01
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
 | SPECTER-042 | Implement Ollama/Gemma client wrapper in Python | EPIC 06 | P1 | BACKLOG | COMPLETED | SPECTER-002, SPECTER-004 |
-| SPECTER-043 | Implement agent base class with lifecycle (init/execute/output/cleanup) | EPIC 06 | P1 | BACKLOG | Human/DevOps | SPECTER-042 |
-| SPECTER-044 | Implement MCP tool host for agents | EPIC 06 | P2 | BACKLOG | Human/DevOps | SPECTER-043 |
-| SPECTER-045 | Implement agent output schema validation | EPIC 06 | P1 | BACKLOG | Human/DevOps | SPECTER-043 |
-| SPECTER-046 | Implement agent execution timeout enforcement | EPIC 06 | P1 | BACKLOG | Human/DevOps | SPECTER-043 |
-| SPECTER-047 | Implement agent resource usage monitoring | EPIC 06 | P2 | BACKLOG | Human/DevOps | SPECTER-043, SPECTER-007 |
-| SPECTER-048 | Write agent runtime unit tests | EPIC 06 | P1 | BACKLOG | Test Engineer | SPECTER-042, SPECTER-043, SPECTER-045, SPECTER-046 |
+| SPECTER-043 | Implement agent base class with lifecycle (init/execute/output/cleanup) | EPIC 06 | P1 | BACKLOG | COMPLETED | SPECTER-042 |
+| SPECTER-044 | Implement MCP tool host for agents | EPIC 06 | P2 | BACKLOG | COMPLETED | SPECTER-043 |
+| SPECTER-045 | Implement agent output schema validation | EPIC 06 | P1 | BACKLOG | COMPLETED | SPECTER-043 |
+| SPECTER-046 | Implement agent execution timeout enforcement | EPIC 06 | P1 | BACKLOG | COMPLETED | SPECTER-043 |
+| SPECTER-047 | Implement agent resource usage monitoring | EPIC 06 | P2 | BACKLOG | COMPLETED | SPECTER-043, SPECTER-007 |
+| SPECTER-048 | Write agent runtime unit tests | EPIC 06 | P1 | BACKLOG | COMPLETED | SPECTER-042, SPECTER-043, SPECTER-045, SPECTER-046 |
 
 ---
 
@@ -115,12 +115,12 @@ Last updated: 2025-11-01
 
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
-| SPECTER-049 | Implement structured message schema (agent-message.schema.json) | EPIC 07 | P1 | BACKLOG | Human/DevOps | SPECTER-043 |
-| SPECTER-050 | Implement message router in Coordinator | EPIC 07 | P1 | BACKLOG | Resurrection Coordinator | SPECTER-049, SPECTER-090 |
-| SPECTER-051 | Implement message validation against schema | EPIC 07 | P1 | BACKLOG | Human/DevOps | SPECTER-049 |
-| SPECTER-052 | Implement message persistence in PostgreSQL | EPIC 07 | P1 | BACKLOG | Human/DevOps | SPECTER-049, SPECTER-012 |
-| SPECTER-053 | Implement message delivery acknowledgment | EPIC 07 | P2 | BACKLOG | Human/DevOps | SPECTER-052 |
-| SPECTER-054 | Write communication protocol tests | EPIC 07 | P1 | BACKLOG | Test Engineer | SPECTER-049, SPECTER-050, SPECTER-051, SPECTER-052 |
+| SPECTER-049 | Implement structured message schema (agent-message.schema.json) | EPIC 07 | P1 | BACKLOG | COMPLETED | SPECTER-043 |
+| SPECTER-050 | Implement message router in Coordinator | EPIC 07 | P1 | BACKLOG | COMPLETED | SPECTER-049, SPECTER-090 |
+| SPECTER-051 | Implement message validation against schema | EPIC 07 | P1 | BACKLOG | COMPLETED | SPECTER-049 |
+| SPECTER-052 | Implement message persistence in PostgreSQL | EPIC 07 | P1 | BACKLOG | COMPLETED | SPECTER-049, SPECTER-012 |
+| SPECTER-053 | Implement message delivery acknowledgment | EPIC 07 | P2 | BACKLOG | COMPLETED | SPECTER-052 |
+| SPECTER-054 | Write communication protocol tests | EPIC 07 | P1 | BACKLOG | COMPLETED | SPECTER-049, SPECTER-050, SPECTER-051, SPECTER-052 |
 
 ---
 
@@ -147,7 +147,7 @@ Last updated: 2025-11-01
 | SPECTER-064 | Implement root cause analysis prompts and parser | EPIC 09 | P1 | BACKLOG | COMPLETED | SPECTER-062, SPECTER-042 |
 | SPECTER-065 | Implement repair specification generator | EPIC 09 | P1 | BACKLOG | COMPLETED | SPECTER-064 |
 | SPECTER-066 | Implement Investigation Report serializer | EPIC 09 | P1 | BACKLOG | COMPLETED | SPECTER-065 |
-| SPECTER-067 | Write Issue Investigator tests | EPIC 09 | P1 | BACKLOG | Test Engineer | SPECTER-062, SPECTER-063, SPECTER-064, SPECTER-065, SPECTER-066 |
+| SPECTER-067 | Write Issue Investigator tests | EPIC 09 | P1 | BACKLOG | COMPLETED | SPECTER-062, SPECTER-063, SPECTER-064, SPECTER-065, SPECTER-066 |
 
 ---
 
@@ -160,7 +160,7 @@ Last updated: 2025-11-01
 | SPECTER-070 | Implement architecture-preserving constraint checker | EPIC 10 | P1 | BACKLOG | COMPLETED | SPECTER-068, SPECTER-032 |
 | SPECTER-071 | Implement patch serializer and storage | EPIC 10 | P1 | BACKLOG | COMPLETED | SPECTER-069, SPECTER-015 |
 | SPECTER-072 | Implement patch application to workspace | EPIC 10 | P1 | BACKLOG | COMPLETED | SPECTER-071, SPECTER-024 |
-| SPECTER-073 | Write Ghost Repairer tests | EPIC 10 | P1 | BACKLOG | Test Engineer | SPECTER-068, SPECTER-069, SPECTER-070, SPECTER-071, SPECTER-072 |
+| SPECTER-073 | Write Ghost Repairer tests | EPIC 10 | P1 | BACKLOG | COMPLETED | SPECTER-068, SPECTER-069, SPECTER-070, SPECTER-071, SPECTER-072 |
 
 ---
 

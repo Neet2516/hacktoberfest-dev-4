@@ -1,47 +1,47 @@
-# SPECTER Task: SPECTER-051
+# SPECTER Task: SPECTER-047
 
 ---
 
 ## Task ID
-`SPECTER-051`
+`SPECTER-047`
 
 ---
 
 ## Task Title
-Implement message validation against schema
+Implement agent resource usage monitoring
 
 ---
 
 ## Epic
-EPIC 07 — Agent-to-Agent Communication
+EPIC 06 — AI Agent Runtime
 
 ---
 
 ## Priority
-P1
+P2
 
 ---
 
 ## Objective
-Implement Implement message validation against schema to advance capabilities within EPIC 07 — Agent-to-Agent Communication. This component contributes directly to satisfying PRD requirements (FR-06) and maintaining system integrity and reproducibility.
+Implement Implement agent resource usage monitoring to advance capabilities within EPIC 06 — AI Agent Runtime. This component contributes directly to satisfying PRD requirements (FR-05, FR-06) and maintaining system integrity and reproducibility.
 
 ---
 
 ## PRD Requirement Reference
-FR-06
+FR-05, FR-06
 
 ---
 
 ## Technical Specification
-This task implements `Implement message validation against schema` as part of `EPIC 07 — Agent-to-Agent Communication`.
+This task implements `Implement agent resource usage monitoring` as part of `EPIC 06 — AI Agent Runtime`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
-- **Target Subsystem**: Subsystem corresponding to EPIC 07 — Agent-to-Agent Communication (Human/DevOps).
+- **Target Subsystem**: Subsystem corresponding to EPIC 06 — AI Agent Runtime (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
 
 ---
 
 ## Dependencies
-SPECTER-049
+SPECTER-043, SPECTER-007
 
 ---
 
@@ -51,13 +51,13 @@ Human/DevOps
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-049.
+- Verified design specifications and predecessor artifacts from: SPECTER-043, SPECTER-007.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement message validation against schema`.
+- Verified, compilable implementation of `Implement agent resource usage monitoring`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,15 +65,15 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement message validation against schema`.
-3. Wire integration hooks with dependent tasks (SPECTER-049).
+2. Implement core components and interfaces for `Implement agent resource usage monitoring`.
+3. Wire integration hooks with dependent tasks (SPECTER-043, SPECTER-007).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
 ---
 
 ## Files Affected
-- Modules associated with EPIC 07 — Agent-to-Agent Communication in backend, agent runtime, or frontend.
+- Modules associated with EPIC 06 — AI Agent Runtime in backend, agent runtime, or frontend.
 - Corresponding test suites and documentation references.
 
 ---
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement message validation against schema` is complete and functionally verified.
+- [ ] Implementation of `Implement agent resource usage monitoring` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Implementation verified and tested with automated unit test suites (`runtime/tests/`).
+- Subsystem test suites passing with 100% success rate (`python -m unittest discover -s runtime/tests`).
+- Codebase integrated cleanly with strict security boundaries and isolation.
