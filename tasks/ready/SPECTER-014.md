@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-013
+# SPECTER Task: SPECTER-014
 
 ---
 
 ## Task ID
-`SPECTER-013`
+`SPECTER-014`
 
 ---
 
 ## Task Title
-Create repository entity model and CRUD operations
+Create task entity model and state machine
 
 ---
 
@@ -23,7 +23,7 @@ P1
 ---
 
 ## Objective
-Implement Create repository entity model and CRUD operations to advance capabilities within EPIC 02 — Backend Infrastructure. This component contributes directly to satisfying PRD requirements (FR-02, FR-10, FR-14) and maintaining system integrity and reproducibility.
+Implement Create task entity model and state machine to advance capabilities within EPIC 02 — Backend Infrastructure. This component contributes directly to satisfying PRD requirements (FR-02, FR-10, FR-14) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-02, FR-10, FR-14
 ---
 
 ## Technical Specification
-This task implements `Create repository entity model and CRUD operations` as part of `EPIC 02 — Backend Infrastructure`.
+This task implements `Create task entity model and state machine` as part of `EPIC 02 — Backend Infrastructure`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 02 — Backend Infrastructure (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -57,7 +57,7 @@ Human/DevOps
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Create repository entity model and CRUD operations`.
+- Verified, compilable implementation of `Create task entity model and state machine`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,7 +65,7 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Create repository entity model and CRUD operations`.
+2. Implement core components and interfaces for `Create task entity model and state machine`.
 3. Wire integration hooks with dependent tasks (SPECTER-012).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Create repository entity model and CRUD operations` is complete and functionally verified.
+- [ ] Implementation of `Create task entity model and state machine` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+READY
 
 ---
 

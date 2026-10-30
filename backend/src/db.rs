@@ -39,4 +39,11 @@ impl DatabaseService {
             .await
             .map(|_| true)
     }
+
+    pub async fn run_migrations(&self) -> Result<(), sqlx::migrate::MigrateError> {
+        tracing::info!("Running embedded database schema migrations");
+        sqlx::migrate!("./migrations").run(&self.pool).await?;
+        tracing::info!("Database schema migrations applied successfully");
+        Ok(())
+    }
 }
