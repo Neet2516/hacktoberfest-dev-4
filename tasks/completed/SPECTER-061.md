@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-055
+# SPECTER Task: SPECTER-061
 
 ---
 
 ## Task ID
-`SPECTER-055`
+`SPECTER-061`
 
 ---
 
 ## Task Title
-Design Ghost Memory PostgreSQL schema (with pgvector)
+Write Ghost Memory tests
 
 ---
 
@@ -18,12 +18,12 @@ EPIC 08 — Ghost Memory
 ---
 
 ## Priority
-P1
+P2
 
 ---
 
 ## Objective
-Implement Design Ghost Memory PostgreSQL schema (with pgvector) to advance capabilities within EPIC 08 — Ghost Memory. This component contributes directly to satisfying PRD requirements (FR-10) and maintaining system integrity and reproducibility.
+Implement Write Ghost Memory tests to advance capabilities within EPIC 08 — Ghost Memory. This component contributes directly to satisfying PRD requirements (FR-10) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,31 +33,31 @@ FR-10
 ---
 
 ## Technical Specification
-This task implements `Design Ghost Memory PostgreSQL schema (with pgvector)` as part of `EPIC 08 — Ghost Memory`.
+This task implements `Write Ghost Memory tests` as part of `EPIC 08 — Ghost Memory`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
-- **Target Subsystem**: Subsystem corresponding to EPIC 08 — Ghost Memory (Human/DevOps).
+- **Target Subsystem**: Subsystem corresponding to EPIC 08 — Ghost Memory (Test Engineer).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
 
 ---
 
 ## Dependencies
-SPECTER-005, SPECTER-012
+SPECTER-055, SPECTER-056, SPECTER-057, SPECTER-058
 
 ---
 
 ## Responsible Agent / Human Owner
-Human/DevOps
+Test Engineer
 
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-005, SPECTER-012.
+- Verified design specifications and predecessor artifacts from: SPECTER-055, SPECTER-056, SPECTER-057, SPECTER-058.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Design Ghost Memory PostgreSQL schema (with pgvector)`.
+- Verified, compilable implementation of `Write Ghost Memory tests`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Design Ghost Memory PostgreSQL schema (with pgvector)`.
-3. Wire integration hooks with dependent tasks (SPECTER-005, SPECTER-012).
+2. Implement core components and interfaces for `Write Ghost Memory tests`.
+3. Wire integration hooks with dependent tasks (SPECTER-055, SPECTER-056, SPECTER-057, SPECTER-058).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Design Ghost Memory PostgreSQL schema (with pgvector)` is complete and functionally verified.
+- [ ] Implementation of `Write Ghost Memory tests` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,7 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Ghost Memory subsystem implemented in `runtime/specter_runtime/memory/ghost_memory.py`.
+- Schema defined in PostgreSQL migration with vector(768).
+- Cosine similarity retrieval, negative test suite recorder, and prompt augmentation verified.
+- Unit test suite `runtime/tests/test_ghost_memory.py` passing with 100% success rate.

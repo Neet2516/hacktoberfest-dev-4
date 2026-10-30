@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-060
+# SPECTER Task: SPECTER-057
 
 ---
 
 ## Task ID
-`SPECTER-060`
+`SPECTER-057`
 
 ---
 
 ## Task Title
-Implement memory entry expiry and confidence decay
+Implement memory fact vs hypothesis tagging
 
 ---
 
@@ -23,7 +23,7 @@ P2
 ---
 
 ## Objective
-Implement Implement memory entry expiry and confidence decay to advance capabilities within EPIC 08 — Ghost Memory. This component contributes directly to satisfying PRD requirements (FR-10) and maintaining system integrity and reproducibility.
+Implement Implement memory fact vs hypothesis tagging to advance capabilities within EPIC 08 — Ghost Memory. This component contributes directly to satisfying PRD requirements (FR-10) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-10
 ---
 
 ## Technical Specification
-This task implements `Implement memory entry expiry and confidence decay` as part of `EPIC 08 — Ghost Memory`.
+This task implements `Implement memory fact vs hypothesis tagging` as part of `EPIC 08 — Ghost Memory`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 08 — Ghost Memory (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Implement memory entry expiry and confidence decay` as par
 ---
 
 ## Dependencies
-SPECTER-056, SPECTER-057
+SPECTER-056
 
 ---
 
@@ -51,13 +51,13 @@ Human/DevOps
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-056, SPECTER-057.
+- Verified design specifications and predecessor artifacts from: SPECTER-056.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement memory entry expiry and confidence decay`.
+- Verified, compilable implementation of `Implement memory fact vs hypothesis tagging`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement memory entry expiry and confidence decay`.
-3. Wire integration hooks with dependent tasks (SPECTER-056, SPECTER-057).
+2. Implement core components and interfaces for `Implement memory fact vs hypothesis tagging`.
+3. Wire integration hooks with dependent tasks (SPECTER-056).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement memory entry expiry and confidence decay` is complete and functionally verified.
+- [ ] Implementation of `Implement memory fact vs hypothesis tagging` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,7 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Ghost Memory subsystem implemented in `runtime/specter_runtime/memory/ghost_memory.py`.
+- Schema defined in PostgreSQL migration with vector(768).
+- Cosine similarity retrieval, negative test suite recorder, and prompt augmentation verified.
+- Unit test suite `runtime/tests/test_ghost_memory.py` passing with 100% success rate.

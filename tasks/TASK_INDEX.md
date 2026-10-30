@@ -128,13 +128,13 @@ Last updated: 2025-11-01
 
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
-| SPECTER-055 | Design Ghost Memory PostgreSQL schema (with pgvector) | EPIC 08 | P1 | BACKLOG | Human/DevOps | SPECTER-005, SPECTER-012 |
-| SPECTER-056 | Implement memory entry writer (with source provenance) | EPIC 08 | P1 | BACKLOG | Human/DevOps | SPECTER-055 |
-| SPECTER-057 | Implement memory fact vs hypothesis tagging | EPIC 08 | P2 | BACKLOG | Human/DevOps | SPECTER-056 |
-| SPECTER-058 | Implement vector similarity search for memory retrieval | EPIC 08 | P1 | BACKLOG | Human/DevOps | SPECTER-055, SPECTER-042 |
-| SPECTER-059 | Implement memory query API endpoint | EPIC 08 | P2 | BACKLOG | Human/DevOps | SPECTER-058, SPECTER-016 |
-| SPECTER-060 | Implement memory entry expiry and confidence decay | EPIC 08 | P2 | BACKLOG | Human/DevOps | SPECTER-056, SPECTER-057 |
-| SPECTER-061 | Write Ghost Memory tests | EPIC 08 | P2 | BACKLOG | Test Engineer | SPECTER-055, SPECTER-056, SPECTER-057, SPECTER-058 |
+| SPECTER-055 | Design Ghost Memory PostgreSQL schema (with pgvector) | EPIC 08 | P1 | BACKLOG | COMPLETED | SPECTER-005, SPECTER-012 |
+| SPECTER-056 | Implement memory entry writer (with source provenance) | EPIC 08 | P1 | BACKLOG | COMPLETED | SPECTER-055 |
+| SPECTER-057 | Implement memory fact vs hypothesis tagging | EPIC 08 | P2 | BACKLOG | COMPLETED | SPECTER-056 |
+| SPECTER-058 | Implement vector similarity search for memory retrieval | EPIC 08 | P1 | BACKLOG | COMPLETED | SPECTER-055, SPECTER-042 |
+| SPECTER-059 | Implement memory query API endpoint | EPIC 08 | P2 | BACKLOG | COMPLETED | SPECTER-058, SPECTER-016 |
+| SPECTER-060 | Implement memory entry expiry and confidence decay | EPIC 08 | P2 | BACKLOG | COMPLETED | SPECTER-056, SPECTER-057 |
+| SPECTER-061 | Write Ghost Memory tests | EPIC 08 | P2 | BACKLOG | COMPLETED | SPECTER-055, SPECTER-056, SPECTER-057, SPECTER-058 |
 
 ---
 
