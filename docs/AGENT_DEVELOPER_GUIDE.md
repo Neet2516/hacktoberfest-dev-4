@@ -23,3 +23,4 @@ class CustomSpecialistAgent(SpecterAgent):
         await self.emit_message(to="coordinator", ...)
         return AgentResult(...)
 ```
+

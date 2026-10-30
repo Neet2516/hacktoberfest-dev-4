@@ -23,3 +23,4 @@ All requests to the SPECTER Backend API use JSON envelopes and standard HTTP sta
 - `POST /api/v1/proposals/:proposal_id/reject`
   - Body: `{"reviewer": "maintainer_handle", "feedback": "Detailed reason"}`
   - Action: Marks proposal rejected and triggers negative test case recording.
+

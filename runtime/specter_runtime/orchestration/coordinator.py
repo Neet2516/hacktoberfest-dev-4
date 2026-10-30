@@ -224,3 +224,4 @@ class ResurrectionCoordinatorAgent(SpecterAgent):
                 "failure_reason": pipeline.failure_reason,
             },
         )
+

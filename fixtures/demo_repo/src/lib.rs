@@ -4,3 +4,4 @@ pub fn parse_config(raw: &str) -> Result<String, &'static str> {
     }
     Ok(raw.to_uppercase())
 }
+

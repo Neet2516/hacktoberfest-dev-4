@@ -5,3 +5,4 @@ Maintained actively until 2022.
 
 ## Defect Note
 Issue #1 describes a panic when calling `parse_config` with empty input.
+

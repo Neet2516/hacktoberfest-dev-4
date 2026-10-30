@@ -107,3 +107,4 @@ class IssueInvestigatorAgent(SpecterAgent):
             data=spec.to_dict(),
             evidence_refs=[f"issue:#{spec.issue_id}"],
         )
+

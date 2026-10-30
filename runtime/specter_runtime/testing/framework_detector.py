@@ -31,3 +31,4 @@ class TestFrameworkDetector:
 
         # Fallback default
         return TestFrameworkConfig(framework_name="unknown", command=["echo", "No known test framework detected"])
+

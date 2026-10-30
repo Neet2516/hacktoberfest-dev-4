@@ -9,3 +9,4 @@
 - Verify that disposable test containers always execute with `--network none`.
 - Check that host workspace directories are mounted strictly `:ro` (read-only).
 - Ensure `GITHUB_TOKEN` is never stored in prompt template files or agent message payloads.
+

@@ -12,3 +12,4 @@ with open("tasks/completed/SPECTER-034.md", "w", encoding="utf-8") as f:
 
 os.remove("tasks/ready/SPECTER-034.md")
 print("Moved SPECTER-034 to completed.")
+

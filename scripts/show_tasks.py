@@ -9,3 +9,4 @@ for pattern in ["tasks/backlog/SPECTER-*.md"]:
         m_ep = re.search(r"## Epic\s*\n\s*([^\n]+)", content)
         if m_id and m_ti and m_ep:
             print(f"{m_id.group(1)} | {m_ep.group(1)} | {m_ti.group(1)}")
+

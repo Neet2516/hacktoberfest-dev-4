@@ -61,3 +61,4 @@ class MetricsCollector:
             }
             for s in self.spans
         ]
+

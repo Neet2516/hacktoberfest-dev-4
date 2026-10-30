@@ -13,3 +13,4 @@
 | `ERR_TEST_EXECUTION_FAILED` | Testing | 500 | Isolated disposable container failed test execution | Inspect test runner output and patch logic |
 | `ERR_GATE_UNAUTHORIZED` | Human Gate | 401 | Remote branch mutation attempted without signed human approval | Submit proposal to maintainer dashboard for explicit signoff |
 | `ERR_SECRET_EXPOSURE_RISK` | Security | 400 | Sensitive token or secret detected in diff or prompt | Scrub credentials immediately and reject diff |
+

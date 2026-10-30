@@ -122,3 +122,4 @@ class GhostRepairerAgent(SpecterAgent):
             },
             evidence_refs=[f"file:{target_file}"],
         )
+

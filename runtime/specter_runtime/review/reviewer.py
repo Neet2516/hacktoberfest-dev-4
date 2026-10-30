@@ -158,3 +158,4 @@ class AdversarialReviewerAgent(SpecterAgent):
             data=report.to_dict(),
             evidence_refs=[f"diff:{target_file}"],
         )
+

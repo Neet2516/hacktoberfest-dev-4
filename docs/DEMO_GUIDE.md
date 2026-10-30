@@ -17,3 +17,4 @@
    The **Test Engineer** boots a disposable Docker container with `--network none`, runs `cargo test`, and confirms 100% test pass.
 7. **Human Approval Gate**:
    The maintainer reviews the proposal in the dashboard, approves the fix, and SPECTER submits the Pull Request with full cryptographic audit hash.
+

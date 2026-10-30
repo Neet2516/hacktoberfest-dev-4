@@ -77,3 +77,4 @@ class TestOutputParser:
             success=success,
             failure_messages=[] if success else [f"Process exited with non-zero code {exit_code}"],
         )
+

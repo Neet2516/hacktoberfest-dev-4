@@ -109,3 +109,4 @@ class ApprovalGate:
         prop.rejection_feedback = feedback
         prop.resolved_at = datetime.now(timezone.utc).isoformat()
         return prop
+

@@ -46,3 +46,4 @@ class PipelineExecution:
             data=data,
         )
         self.current_step = step
+

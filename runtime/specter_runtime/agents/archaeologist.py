@@ -118,3 +118,4 @@ class RepositoryArchaeologistAgent(SpecterAgent):
             },
             evidence_refs=[f"git:commit:{context.baseline_commit or 'HEAD'}"],
         )
+

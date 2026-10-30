@@ -150,3 +150,4 @@ class PatternDetector:
         if "rust" in languages or "c" in languages:
             return "Systems Library / Core Crate"
         return "Modular Library"
+

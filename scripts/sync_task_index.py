@@ -37,3 +37,4 @@ with open("tasks/TASK_INDEX.md", "w", encoding="utf-8") as f:
     f.writelines(new_lines)
 
 print("TASK_INDEX.md synchronized successfully.")
+
