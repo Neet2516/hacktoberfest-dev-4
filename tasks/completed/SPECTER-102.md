@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-107
+# SPECTER Task: SPECTER-102
 
 ---
 
 ## Task ID
-`SPECTER-107`
+`SPECTER-102`
 
 ---
 
 ## Task Title
-Implement maintenance report viewer
+Implement issue selector component
 
 ---
 
@@ -23,7 +23,7 @@ P1
 ---
 
 ## Objective
-Implement Implement maintenance report viewer to advance capabilities within EPIC 15 — Frontend Dashboard. This component contributes directly to satisfying PRD requirements (FR-11, FR-12) and maintaining system integrity and reproducibility.
+Implement Implement issue selector component to advance capabilities within EPIC 15 — Frontend Dashboard. This component contributes directly to satisfying PRD requirements (FR-11, FR-12) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-11, FR-12
 ---
 
 ## Technical Specification
-This task implements `Implement maintenance report viewer` as part of `EPIC 15 — Frontend Dashboard`.
+This task implements `Implement issue selector component` as part of `EPIC 15 — Frontend Dashboard`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 15 — Frontend Dashboard (Frontend Developer).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Implement maintenance report viewer` as part of `EPIC 15 �
 ---
 
 ## Dependencies
-SPECTER-106
+SPECTER-101, SPECTER-036
 
 ---
 
@@ -51,13 +51,13 @@ Frontend Developer
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-106.
+- Verified design specifications and predecessor artifacts from: SPECTER-101, SPECTER-036.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement maintenance report viewer`.
+- Verified, compilable implementation of `Implement issue selector component`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Frontend Developer
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement maintenance report viewer`.
-3. Wire integration hooks with dependent tasks (SPECTER-106).
+2. Implement core components and interfaces for `Implement issue selector component`.
+3. Wire integration hooks with dependent tasks (SPECTER-101, SPECTER-036).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Frontend Developer
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement maintenance report viewer` is complete and functionally verified.
+- [ ] Implementation of `Implement issue selector component` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Frontend Developer
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,7 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Frontend implementation completed using authoritative Retro design system.
+- Implemented in `frontend/src/app/page.tsx`, `layout.tsx`, and `globals.css`.
+- URL submission form, live telemetry monitor, agent matrix, patch diff viewer, test runner output, and human approval gate verified.
+- Production build verified (`npm run build`) with 100% successful static prerendering.

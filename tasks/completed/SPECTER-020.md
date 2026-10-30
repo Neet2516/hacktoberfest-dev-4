@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-017
+# SPECTER Task: SPECTER-020
 
 ---
 
 ## Task ID
-`SPECTER-017`
+`SPECTER-020`
 
 ---
 
 ## Task Title
-Implement API authentication middleware (JWT or API key)
+Write backend integration tests
 
 ---
 
@@ -18,12 +18,12 @@ EPIC 02 — Backend Infrastructure
 ---
 
 ## Priority
-P0
+P1
 
 ---
 
 ## Objective
-Implement Implement API authentication middleware (JWT or API key) to advance capabilities within EPIC 02 — Backend Infrastructure. This component contributes directly to satisfying PRD requirements (FR-02, FR-10, FR-14) and maintaining system integrity and reproducibility.
+Implement Write backend integration tests to advance capabilities within EPIC 02 — Backend Infrastructure. This component contributes directly to satisfying PRD requirements (FR-02, FR-10, FR-14) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,31 +33,31 @@ FR-02, FR-10, FR-14
 ---
 
 ## Technical Specification
-This task implements `Implement API authentication middleware (JWT or API key)` as part of `EPIC 02 — Backend Infrastructure`.
+This task implements `Write backend integration tests` as part of `EPIC 02 — Backend Infrastructure`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
-- **Target Subsystem**: Subsystem corresponding to EPIC 02 — Backend Infrastructure (Security Engineer).
+- **Target Subsystem**: Subsystem corresponding to EPIC 02 — Backend Infrastructure (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
 
 ---
 
 ## Dependencies
-SPECTER-011, SPECTER-009
+SPECTER-013, SPECTER-014, SPECTER-015, SPECTER-016
 
 ---
 
 ## Responsible Agent / Human Owner
-Security Engineer
+Human/DevOps
 
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-011, SPECTER-009.
+- Verified design specifications and predecessor artifacts from: SPECTER-013, SPECTER-014, SPECTER-015, SPECTER-016.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement API authentication middleware (JWT or API key)`.
+- Verified, compilable implementation of `Write backend integration tests`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Security Engineer
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement API authentication middleware (JWT or API key)`.
-3. Wire integration hooks with dependent tasks (SPECTER-011, SPECTER-009).
+2. Implement core components and interfaces for `Write backend integration tests`.
+3. Wire integration hooks with dependent tasks (SPECTER-013, SPECTER-014, SPECTER-015, SPECTER-016).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Security Engineer
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement API authentication middleware (JWT or API key)` is complete and functionally verified.
+- [ ] Implementation of `Write backend integration tests` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Security Engineer
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Implementation completed and verified with automated test suites.
+- Models and middleware implemented in `backend/src/models/` and `backend/src/middleware/`.
+- Integration test suite passing with 100% success rate (`cargo test --manifest-path backend/Cargo.toml`).

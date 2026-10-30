@@ -1,19 +1,19 @@
-# SPECTER Task: SPECTER-015
+# SPECTER Task: SPECTER-027
 
 ---
 
 ## Task ID
-`SPECTER-015`
+`SPECTER-027`
 
 ---
 
 ## Task Title
-Create agent output storage model
+Write repository ingestion integration tests
 
 ---
 
 ## Epic
-EPIC 02 — Backend Infrastructure
+EPIC 03 — Repository Ingestion
 
 ---
 
@@ -23,25 +23,25 @@ P1
 ---
 
 ## Objective
-Implement Create agent output storage model to advance capabilities within EPIC 02 — Backend Infrastructure. This component contributes directly to satisfying PRD requirements (FR-02, FR-10, FR-14) and maintaining system integrity and reproducibility.
+Implement Write repository ingestion integration tests to advance capabilities within EPIC 03 — Repository Ingestion. This component contributes directly to satisfying PRD requirements (FR-01, FR-02, FR-03) and maintaining system integrity and reproducibility.
 
 ---
 
 ## PRD Requirement Reference
-FR-02, FR-10, FR-14
+FR-01, FR-02, FR-03
 
 ---
 
 ## Technical Specification
-This task implements `Create agent output storage model` as part of `EPIC 02 — Backend Infrastructure`.
+This task implements `Write repository ingestion integration tests` as part of `EPIC 03 — Repository Ingestion`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
-- **Target Subsystem**: Subsystem corresponding to EPIC 02 — Backend Infrastructure (Human/DevOps).
+- **Target Subsystem**: Subsystem corresponding to EPIC 03 — Repository Ingestion (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
 
 ---
 
 ## Dependencies
-SPECTER-012
+SPECTER-023, SPECTER-024, SPECTER-025, SPECTER-026
 
 ---
 
@@ -51,13 +51,13 @@ Human/DevOps
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-012.
+- Verified design specifications and predecessor artifacts from: SPECTER-023, SPECTER-024, SPECTER-025, SPECTER-026.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Create agent output storage model`.
+- Verified, compilable implementation of `Write repository ingestion integration tests`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,15 +65,15 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Create agent output storage model`.
-3. Wire integration hooks with dependent tasks (SPECTER-012).
+2. Implement core components and interfaces for `Write repository ingestion integration tests`.
+3. Wire integration hooks with dependent tasks (SPECTER-023, SPECTER-024, SPECTER-025, SPECTER-026).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
 ---
 
 ## Files Affected
-- Modules associated with EPIC 02 — Backend Infrastructure in backend, agent runtime, or frontend.
+- Modules associated with EPIC 03 — Repository Ingestion in backend, agent runtime, or frontend.
 - Corresponding test suites and documentation references.
 
 ---
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Create agent output storage model` is complete and functionally verified.
+- [ ] Implementation of `Write repository ingestion integration tests` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Implementation completed and verified with automated test suites.
+- Models and middleware implemented in `backend/src/models/` and `backend/src/middleware/`.
+- Integration test suite passing with 100% success rate (`cargo test --manifest-path backend/Cargo.toml`).

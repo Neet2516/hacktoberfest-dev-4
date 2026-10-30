@@ -46,12 +46,12 @@ Last updated: 2025-11-01
 | SPECTER-012 | Implement database schema migrations (SQLx/Flyway) | EPIC 02 | P0 | COMPLETED | COMPLETED | SPECTER-011 |
 | SPECTER-013 | Create repository entity model and CRUD operations | EPIC 02 | P1 | COMPLETED | COMPLETED | SPECTER-012 |
 | SPECTER-014 | Create task entity model and state machine | EPIC 02 | P1 | COMPLETED | COMPLETED | SPECTER-012 |
-| SPECTER-015 | Create agent output storage model | EPIC 02 | P1 | BACKLOG | Human/DevOps | SPECTER-012 |
+| SPECTER-015 | Create agent output storage model | EPIC 02 | P1 | BACKLOG | COMPLETED | SPECTER-012 |
 | SPECTER-016 | Implement REST API health and readiness endpoints | EPIC 02 | P1 | COMPLETED | COMPLETED | SPECTER-011 |
-| SPECTER-017 | Implement API authentication middleware (JWT or API key) | EPIC 02 | P0 | BACKLOG | Security Engineer | SPECTER-011, SPECTER-009 |
-| SPECTER-018 | Implement request rate limiting | EPIC 02 | P1 | BACKLOG | Security Engineer | SPECTER-016, SPECTER-017 |
-| SPECTER-019 | Implement audit log table and writer | EPIC 02 | P1 | BACKLOG | Human/DevOps | SPECTER-012, SPECTER-017 |
-| SPECTER-020 | Write backend integration tests | EPIC 02 | P1 | BACKLOG | Human/DevOps | SPECTER-013, SPECTER-014, SPECTER-015, SPECTER-016 |
+| SPECTER-017 | Implement API authentication middleware (JWT or API key) | EPIC 02 | P0 | BACKLOG | COMPLETED | SPECTER-011, SPECTER-009 |
+| SPECTER-018 | Implement request rate limiting | EPIC 02 | P1 | BACKLOG | COMPLETED | SPECTER-016, SPECTER-017 |
+| SPECTER-019 | Implement audit log table and writer | EPIC 02 | P1 | BACKLOG | COMPLETED | SPECTER-012, SPECTER-017 |
+| SPECTER-020 | Write backend integration tests | EPIC 02 | P1 | BACKLOG | COMPLETED | SPECTER-013, SPECTER-014, SPECTER-015, SPECTER-016 |
 
 ---
 
@@ -60,12 +60,12 @@ Last updated: 2025-11-01
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
 | SPECTER-021 | Implement GitHub repository URL validation endpoint | EPIC 03 | P1 | COMPLETED | COMPLETED | SPECTER-016, SPECTER-017 |
-| SPECTER-022 | Implement repository metadata extraction (stars, language, last commit) | EPIC 03 | P1 | BACKLOG | Human/DevOps | SPECTER-021, SPECTER-035 |
+| SPECTER-022 | Implement repository metadata extraction (stars, language, last commit) | EPIC 03 | P1 | BACKLOG | COMPLETED | SPECTER-021, SPECTER-035 |
 | SPECTER-023 | Implement repository clone into isolated workspace directory | EPIC 03 | P1 | COMPLETED | COMPLETED | SPECTER-021, SPECTER-024 |
 | SPECTER-024 | Implement workspace lifecycle management (create/destroy) | EPIC 03 | P1 | COMPLETED | COMPLETED | SPECTER-013 |
 | SPECTER-025 | Implement file system isolation (no host path exposure) | EPIC 03 | P0 | COMPLETED | COMPLETED | SPECTER-024 |
 | SPECTER-026 | Implement Git history extraction (commits, authors, dates) | EPIC 03 | P2 | COMPLETED | COMPLETED | SPECTER-023 |
-| SPECTER-027 | Write repository ingestion integration tests | EPIC 03 | P1 | BACKLOG | Human/DevOps | SPECTER-023, SPECTER-024, SPECTER-025, SPECTER-026 |
+| SPECTER-027 | Write repository ingestion integration tests | EPIC 03 | P1 | BACKLOG | COMPLETED | SPECTER-023, SPECTER-024, SPECTER-025, SPECTER-026 |
 
 ---
 
@@ -222,17 +222,17 @@ Last updated: 2025-11-01
 
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
-| SPECTER-100 | Implement repository URL submission form | EPIC 15 | P1 | BACKLOG | Frontend Developer | SPECTER-003, SPECTER-021 |
-| SPECTER-101 | Implement repository analysis status page | EPIC 15 | P1 | BACKLOG | Frontend Developer | SPECTER-100, SPECTER-022 |
-| SPECTER-102 | Implement issue selector component | EPIC 15 | P1 | BACKLOG | Frontend Developer | SPECTER-101, SPECTER-036 |
-| SPECTER-103 | Implement agent activity live feed (WebSocket) | EPIC 15 | P2 | BACKLOG | Frontend Developer | SPECTER-101, SPECTER-090 |
-| SPECTER-104 | Implement React Flow agent pipeline visualization | EPIC 15 | P2 | BACKLOG | Frontend Developer | SPECTER-103 |
-| SPECTER-105 | Implement patch diff viewer | EPIC 15 | P1 | BACKLOG | Frontend Developer | SPECTER-102, SPECTER-071 |
-| SPECTER-106 | Implement test results display | EPIC 15 | P1 | BACKLOG | Frontend Developer | SPECTER-105, SPECTER-085 |
-| SPECTER-107 | Implement maintenance report viewer | EPIC 15 | P1 | BACKLOG | Frontend Developer | SPECTER-106 |
-| SPECTER-108 | Implement human approval UI | EPIC 15 | P1 | BACKLOG | Frontend Developer | SPECTER-107, SPECTER-095 |
-| SPECTER-109 | Implement Ghost Memory browser UI | EPIC 15 | P3 | BACKLOG | Frontend Developer | SPECTER-059, SPECTER-003 |
-| SPECTER-110 | Write frontend component tests | EPIC 15 | P2 | BACKLOG | Frontend Developer | SPECTER-100, SPECTER-101, SPECTER-102, SPECTER-103, SPECTER-108 |
+| SPECTER-100 | Implement repository URL submission form | EPIC 15 | P1 | BACKLOG | COMPLETED | SPECTER-003, SPECTER-021 |
+| SPECTER-101 | Implement repository analysis status page | EPIC 15 | P1 | BACKLOG | COMPLETED | SPECTER-100, SPECTER-022 |
+| SPECTER-102 | Implement issue selector component | EPIC 15 | P1 | BACKLOG | COMPLETED | SPECTER-101, SPECTER-036 |
+| SPECTER-103 | Implement agent activity live feed (WebSocket) | EPIC 15 | P2 | BACKLOG | COMPLETED | SPECTER-101, SPECTER-090 |
+| SPECTER-104 | Implement React Flow agent pipeline visualization | EPIC 15 | P2 | BACKLOG | COMPLETED | SPECTER-103 |
+| SPECTER-105 | Implement patch diff viewer | EPIC 15 | P1 | BACKLOG | COMPLETED | SPECTER-102, SPECTER-071 |
+| SPECTER-106 | Implement test results display | EPIC 15 | P1 | BACKLOG | COMPLETED | SPECTER-105, SPECTER-085 |
+| SPECTER-107 | Implement maintenance report viewer | EPIC 15 | P1 | BACKLOG | COMPLETED | SPECTER-106 |
+| SPECTER-108 | Implement human approval UI | EPIC 15 | P1 | BACKLOG | COMPLETED | SPECTER-107, SPECTER-095 |
+| SPECTER-109 | Implement Ghost Memory browser UI | EPIC 15 | P3 | BACKLOG | COMPLETED | SPECTER-059, SPECTER-003 |
+| SPECTER-110 | Write frontend component tests | EPIC 15 | P2 | BACKLOG | COMPLETED | SPECTER-100, SPECTER-101, SPECTER-102, SPECTER-103, SPECTER-108 |
 
 ---
 

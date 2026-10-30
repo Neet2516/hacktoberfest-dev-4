@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-027
+# SPECTER Task: SPECTER-022
 
 ---
 
 ## Task ID
-`SPECTER-027`
+`SPECTER-022`
 
 ---
 
 ## Task Title
-Write repository ingestion integration tests
+Implement repository metadata extraction (stars, language, last commit)
 
 ---
 
@@ -23,7 +23,7 @@ P1
 ---
 
 ## Objective
-Implement Write repository ingestion integration tests to advance capabilities within EPIC 03 — Repository Ingestion. This component contributes directly to satisfying PRD requirements (FR-01, FR-02, FR-03) and maintaining system integrity and reproducibility.
+Implement Implement repository metadata extraction (stars, language, last commit) to advance capabilities within EPIC 03 — Repository Ingestion. This component contributes directly to satisfying PRD requirements (FR-01, FR-02, FR-03) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-01, FR-02, FR-03
 ---
 
 ## Technical Specification
-This task implements `Write repository ingestion integration tests` as part of `EPIC 03 — Repository Ingestion`.
+This task implements `Implement repository metadata extraction (stars, language, last commit)` as part of `EPIC 03 — Repository Ingestion`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 03 — Repository Ingestion (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Write repository ingestion integration tests` as part of `
 ---
 
 ## Dependencies
-SPECTER-023, SPECTER-024, SPECTER-025, SPECTER-026
+SPECTER-021, SPECTER-035
 
 ---
 
@@ -51,13 +51,13 @@ Human/DevOps
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-023, SPECTER-024, SPECTER-025, SPECTER-026.
+- Verified design specifications and predecessor artifacts from: SPECTER-021, SPECTER-035.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Write repository ingestion integration tests`.
+- Verified, compilable implementation of `Implement repository metadata extraction (stars, language, last commit)`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Write repository ingestion integration tests`.
-3. Wire integration hooks with dependent tasks (SPECTER-023, SPECTER-024, SPECTER-025, SPECTER-026).
+2. Implement core components and interfaces for `Implement repository metadata extraction (stars, language, last commit)`.
+3. Wire integration hooks with dependent tasks (SPECTER-021, SPECTER-035).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Write repository ingestion integration tests` is complete and functionally verified.
+- [ ] Implementation of `Implement repository metadata extraction (stars, language, last commit)` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Implementation completed and verified with automated test suites.
+- Models and middleware implemented in `backend/src/models/` and `backend/src/middleware/`.
+- Integration test suite passing with 100% success rate (`cargo test --manifest-path backend/Cargo.toml`).
