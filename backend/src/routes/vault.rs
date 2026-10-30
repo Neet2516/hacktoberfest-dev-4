@@ -119,3 +119,4 @@ pub async fn clear_vault_token() -> impl IntoResponse {
         }),
     )
 }
+

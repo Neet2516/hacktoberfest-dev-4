@@ -7,6 +7,7 @@ export default function RetroSpecterDashboard() {
   const [proposalStatus, setProposalStatus] = useState<"PENDING" | "APPROVED" | "REJECTED">("PENDING");
   const [activeTab, setActiveTab] = useState<"diff" | "security" | "tests" | "memory">("diff");
   const [pipelineState, setPipelineState] = useState<"idle" | "running" | "ready">("ready");
+  const [startMenuOpen, setStartMenuOpen] = useState(false);
 
   // GitHub Token Vault State (Client-isolated, never in AI prompts)
   const [rawTokenInput, setRawTokenInput] = useState("");
@@ -132,57 +133,151 @@ export default function RetroSpecterDashboard() {
   return (
     <div className="min-h-screen pb-12">
       {/* 1. RETRO DESKTOP MENU / TASKBAR */}
-      <nav className="retro-window w-full border-x-0 border-t-0 p-1 mb-4 flex items-center justify-between z-50">
-        <div className="flex items-center gap-1 text-sm font-bold">
-          <button
-            type="button"
-            className="retro-btn bg-[#d4d4d4] font-extrabold px-3 py-1 text-xs uppercase flex items-center gap-1.5 focus:outline-none"
-          >
-            <span className="text-base leading-none">👻</span>
-            <span>SPECTER START</span>
-          </button>
-          <div className="h-5 w-[2px] bg-[#808080] mx-1 border-r border-white"></div>
-          <span className="px-2 py-0.5 text-xs font-semibold hover:bg-[#000080] hover:text-white cursor-pointer">
-            File
-          </span>
-          <span className="px-2 py-0.5 text-xs font-semibold hover:bg-[#000080] hover:text-white cursor-pointer">
-            Archaeology
-          </span>
-          <span className="px-2 py-0.5 text-xs font-semibold hover:bg-[#000080] hover:text-white cursor-pointer">
-            Investigation
-          </span>
-          <span className="px-2 py-0.5 text-xs font-semibold hover:bg-[#000080] hover:text-white cursor-pointer">
-            Repair
-          </span>
-          <span className="px-2 py-0.5 text-xs font-semibold hover:bg-[#000080] hover:text-white cursor-pointer">
-            Sandbox
-          </span>
-          <span className="px-2 py-0.5 text-xs font-semibold hover:bg-[#000080] hover:text-white cursor-pointer">
-            Audit
-          </span>
+      <header className="sticky top-0 z-50 w-full bg-[#d4d4d4] border-b-2 border-b-[#808080] border-t-2 border-t-white px-2 sm:px-4 py-1 mb-5 flex items-center justify-between shadow-[0_2px_4px_rgba(0,0,0,0.2)] select-none">
+        {/* Left Side: Start Button + Menu Items */}
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          {/* Retro Start Key */}
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setStartMenuOpen(!startMenuOpen)}
+              className={`retro-btn font-extrabold text-xs uppercase px-2.5 py-1 flex items-center gap-1.5 focus:outline-none ${
+                startMenuOpen
+                  ? "bg-[#c0c0c0] border-t-2 border-l-2 border-t-[#808080] border-l-[#808080] border-b-2 border-r-2 border-b-white border-r-white translate-x-[1px] translate-y-[1px]"
+                  : "bg-[#d4d4d4]"
+              }`}
+            >
+              <span className="text-sm leading-none">👻</span>
+              <span className="tracking-wide">START</span>
+            </button>
+
+            {/* Retro Start Menu Popup */}
+            {startMenuOpen && (
+              <div
+                className="absolute top-8 left-0 w-64 retro-window p-1 shadow-[4px_4px_0px_#000000] z-50 bg-[#d4d4d4] flex text-xs"
+                onClick={() => setStartMenuOpen(false)}
+              >
+                {/* Vertical OS Brand Banner */}
+                <div className="bg-gradient-to-t from-[#000080] to-[#1084d0] w-7 flex items-end justify-center py-2 text-white font-retro-display font-black text-xs tracking-widest writing-vertical-lr rotate-180 select-none">
+                  SPECTER 98
+                </div>
+
+                {/* Start Menu Items */}
+                <div className="flex-1 py-1 pl-1 space-y-0.5 font-retro-interface text-black">
+                  <a
+                    href="#launchpad"
+                    className="flex items-center gap-2 px-2.5 py-1.5 hover:bg-[#000080] hover:text-white cursor-pointer select-none font-bold"
+                  >
+                    <span>📁</span>
+                    <span>Repository Launchpad</span>
+                  </a>
+                  <a
+                    href="#vault"
+                    className="flex items-center gap-2 px-2.5 py-1.5 hover:bg-[#000080] hover:text-white cursor-pointer select-none font-bold"
+                  >
+                    <span>🔐</span>
+                    <span>GitHub Credential Vault</span>
+                  </a>
+                  <a
+                    href="#agents"
+                    className="flex items-center gap-2 px-2.5 py-1.5 hover:bg-[#000080] hover:text-white cursor-pointer select-none font-bold"
+                  >
+                    <span>🤖</span>
+                    <span>Autonomous Agent Mesh</span>
+                  </a>
+                  <a
+                    href="#proposals"
+                    className="flex items-center gap-2 px-2.5 py-1.5 hover:bg-[#000080] hover:text-white cursor-pointer select-none font-bold"
+                  >
+                    <span>⚖️</span>
+                    <span>Maintenance Proposals</span>
+                  </a>
+                  <div className="border-t border-[#808080] border-b border-b-white my-1"></div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setPipelineState("ready");
+                      setStartMenuOpen(false);
+                    }}
+                    className="w-full text-left flex items-center gap-2 px-2.5 py-1.5 hover:bg-[#000080] hover:text-white cursor-pointer font-bold"
+                  >
+                    <span>🔄</span>
+                    <span>Restart Pipeline Mesh</span>
+                  </button>
+                  <div
+                    className="flex items-center gap-2 px-2.5 py-1.5 hover:bg-[#000080] hover:text-white cursor-pointer text-[#808080] hover:text-white"
+                  >
+                    <span>🚪</span>
+                    <span>Close Menu</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="h-5 w-[2px] bg-[#808080] border-r border-white mx-0.5 hidden sm:block"></div>
+
+          {/* Quick Menu Links (Hidden on small screens to prevent overflow collision) */}
+          <div className="hidden md:flex items-center gap-0.5 text-xs font-bold text-black font-retro-interface">
+            <a
+              href="#launchpad"
+              className="px-2 py-0.5 hover:bg-[#000080] hover:text-white cursor-pointer"
+            >
+              Launchpad
+            </a>
+            <a
+              href="#vault"
+              className="px-2 py-0.5 hover:bg-[#000080] hover:text-white cursor-pointer"
+            >
+              Vault
+            </a>
+            <a
+              href="#agents"
+              className="px-2 py-0.5 hover:bg-[#000080] hover:text-white cursor-pointer"
+            >
+              Agents
+            </a>
+            <a
+              href="#proposals"
+              className="px-2 py-0.5 hover:bg-[#000080] hover:text-white cursor-pointer"
+            >
+              Proposals
+            </a>
+          </div>
         </div>
 
-        <div className="flex items-center gap-2 text-xs font-mono">
-          <div className="retro-well px-2 py-0.5 font-bold text-[#006400] bg-[#e6f4ea]">
-            ● MESH ONLINE [6/6]
+        {/* Right Side: Unified Sunken Retro System Tray */}
+        <div className="retro-well px-2 sm:px-3 py-1 bg-[#d4d4d4] flex items-center gap-2 sm:gap-3 text-xs font-mono select-none">
+          {/* Agent Mesh Status */}
+          <div className="flex items-center gap-1.5 text-[#006400] font-bold">
+            <span className="w-2 h-2 bg-[#00aa00] inline-block border border-black animate-pulse"></span>
+            <span className="hidden sm:inline">MESH: </span>
+            <span>6/6</span>
           </div>
+
+          {/* Vault Security Status */}
           <div
-            className={`retro-well px-2 py-0.5 font-bold ${
-              vaultStatus === "ARMED" ? "bg-[#e6f4ea] text-[#006400]" : "bg-[#ffff00] text-black"
+            className={`flex items-center gap-1 font-bold ${
+              vaultStatus === "ARMED" ? "text-[#000080]" : "text-[#800000]"
             }`}
           >
-            {vaultStatus === "ARMED" ? "🔒 VAULT: ARMED" : "⚠️ VAULT: UNSEALED"}
+            <span>{vaultStatus === "ARMED" ? "🔒" : "⚠️"}</span>
+            <span className="hidden md:inline">
+              {vaultStatus === "ARMED" ? "VAULT: ARMED" : "VAULT: UNSEALED"}
+            </span>
           </div>
-          <div className="retro-well px-2 py-0.5 font-bold bg-[#ffffff] text-black">
-            2026-10-31 01:52 UTC
+
+          {/* Clock */}
+          <div className="font-bold text-black border-l border-[#808080] pl-2 text-[11px] whitespace-nowrap">
+            02:05 UTC
           </div>
         </div>
-      </nav>
+      </header>
 
       {/* MAIN TWELVE-COLUMN DESKTOP GRID */}
       <main className="max-w-7xl mx-auto px-3 sm:px-6">
         {/* ROW 1: BROAD YELLOW LAUNCH WINDOW + MONITOR FACTS PANEL */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5 items-start">
+        <div id="launchpad" className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5 items-start">
           {/* Broad Launch Window (Columns 1-7) */}
           <div className="lg:col-span-7 retro-window p-1">
             <div className="retro-titlebar">
@@ -342,7 +437,7 @@ export default function RetroSpecterDashboard() {
         </div>
 
         {/* ROW 2: SECURE GITHUB CREDENTIAL VAULT SECTION (ZERO TOKEN EXPOSURE) */}
-        <div className="retro-window p-1 mb-5">
+        <div id="vault" className="retro-window p-1 mb-5">
           <div className="retro-titlebar">
             <span className="flex items-center gap-1.5">
               <span>🔐</span>
@@ -477,7 +572,7 @@ export default function RetroSpecterDashboard() {
         </div>
 
         {/* ROW 4: AUTONOMOUS AGENTS CAPABILITY WINDOW */}
-        <div className="retro-window p-1 mb-5">
+        <div id="agents" className="retro-window p-1 mb-5">
           <div className="retro-titlebar">
             <span className="flex items-center gap-1.5">
               <span>🤖</span>
@@ -520,7 +615,7 @@ export default function RetroSpecterDashboard() {
         </div>
 
         {/* ROW 5: INTERACTIVE MAINTENANCE PROPOSAL & HUMAN APPROVAL WINDOW */}
-        <div className="retro-window p-1 mb-5">
+        <div id="proposals" className="retro-window p-1 mb-5">
           <div className="retro-titlebar">
             <span className="flex items-center gap-1.5">
               <span>⚖️</span>
