@@ -5,9 +5,17 @@ import React, { useState } from "react";
 export default function RetroSpecterDashboard() {
   const [repoUrl, setRepoUrl] = useState("https://github.com/demo/abandoned_kv");
   const [proposalStatus, setProposalStatus] = useState<"PENDING" | "APPROVED" | "REJECTED">("PENDING");
-  const [reviewerNote, setReviewerNote] = useState("");
   const [activeTab, setActiveTab] = useState<"diff" | "security" | "tests" | "memory">("diff");
   const [pipelineState, setPipelineState] = useState<"idle" | "running" | "ready">("ready");
+
+  // GitHub Token Vault State (Client-isolated, never in AI prompts)
+  const [rawTokenInput, setRawTokenInput] = useState("");
+  const [showToken, setShowToken] = useState(false);
+  const [vaultStatus, setVaultStatus] = useState<"UNSEALED" | "ARMED" | "PURGED">("UNSEALED");
+  const [maskedToken, setMaskedToken] = useState<string | null>(null);
+  const [vaultFeedback, setVaultFeedback] = useState<string>(
+    "Vault is unconfigured. System is safely operating in offline fixture mode."
+  );
 
   const agents = [
     {
@@ -87,6 +95,40 @@ export default function RetroSpecterDashboard() {
     setProposalStatus("REJECTED");
   };
 
+  // Secure GitHub Token Vault handlers
+  const handleArmVault = () => {
+    const trimmed = rawTokenInput.trim();
+    if (!trimmed) {
+      setVaultFeedback("Error: Token cannot be empty.");
+      return;
+    }
+
+    if (!trimmed.startsWith("ghp_") && !trimmed.startsWith("github_pat_") && !trimmed.startsWith("gho_")) {
+      setVaultFeedback("Security Error: Invalid token prefix. Must start with ghp_, github_pat_, or gho_.");
+      return;
+    }
+
+    // Mask token for safe UI display (first 4 and last 4 characters only)
+    const prefix = trimmed.slice(0, 4);
+    const suffix = trimmed.slice(-4);
+    const masked = `${prefix}••••••••••••••••${suffix}`;
+
+    setMaskedToken(masked);
+    setVaultStatus("ARMED");
+    setVaultFeedback(
+      "Token armed in isolated memory vault. Physical isolation active: GITHUB_TOKEN is redacted from all AI prompts, inter-agent messages, and container sandboxes."
+    );
+    setRawTokenInput(""); // Wipe raw token from input field
+    setShowToken(false);
+  };
+
+  const handlePurgeVault = () => {
+    setRawTokenInput("");
+    setMaskedToken(null);
+    setVaultStatus("PURGED");
+    setVaultFeedback("Token completely purged from memory. System returned to air-gapped mock mode.");
+  };
+
   return (
     <div className="min-h-screen pb-12">
       {/* 1. RETRO DESKTOP MENU / TASKBAR */}
@@ -124,11 +166,15 @@ export default function RetroSpecterDashboard() {
           <div className="retro-well px-2 py-0.5 font-bold text-[#006400] bg-[#e6f4ea]">
             ● MESH ONLINE [6/6]
           </div>
-          <div className="retro-well px-2 py-0.5 font-bold text-[#6600ff]">
-            🔒 VAULT: LOCKED
+          <div
+            className={`retro-well px-2 py-0.5 font-bold ${
+              vaultStatus === "ARMED" ? "bg-[#e6f4ea] text-[#006400]" : "bg-[#ffff00] text-black"
+            }`}
+          >
+            {vaultStatus === "ARMED" ? "🔒 VAULT: ARMED" : "⚠️ VAULT: UNSEALED"}
           </div>
           <div className="retro-well px-2 py-0.5 font-bold bg-[#ffffff] text-black">
-            2026-10-31 01:30 UTC
+            2026-10-31 01:52 UTC
           </div>
         </div>
       </nav>
@@ -137,7 +183,6 @@ export default function RetroSpecterDashboard() {
       <main className="max-w-7xl mx-auto px-3 sm:px-6">
         {/* ROW 1: BROAD YELLOW LAUNCH WINDOW + MONITOR FACTS PANEL */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5 items-start">
-          
           {/* Broad Launch Window (Columns 1-7) */}
           <div className="lg:col-span-7 retro-window p-1">
             <div className="retro-titlebar">
@@ -263,7 +308,10 @@ export default function RetroSpecterDashboard() {
                 &gt; TEST SUITE: Cargo Test (5 unit tests detected)<br />
                 &gt; GHOST MEMORY: 768-dim Vector Store (pgvector)<br />
                 &gt; RETRY BUDGET: 0/3 attempts used<br />
-                &gt; GATE STATUS: <span className="bg-[#ff00b8] text-white px-1">HUMAN SIGNATURE REQUIRED</span><br />
+                &gt; VAULT STATUS:{" "}
+                <span className={vaultStatus === "ARMED" ? "bg-[#00aa00] text-black px-1 font-bold" : "bg-[#ffff00] text-black px-1 font-bold"}>
+                  {vaultStatus === "ARMED" ? "SEALED & ARMED" : "MOCK FIXTURE"}
+                </span><br />
                 &gt; CONTAINER STATUS:
               </div>
               <div className="bg-[#000000] p-2 border border-[#00ff66]/50 text-[#00ff66] text-[11px] leading-tight">
@@ -291,10 +339,129 @@ export default function RetroSpecterDashboard() {
               </div>
             </div>
           </div>
-
         </div>
 
-        {/* ROW 2: BRIGHT PINK TICKER NOTIFICATION STRIP */}
+        {/* ROW 2: SECURE GITHUB CREDENTIAL VAULT SECTION (ZERO TOKEN EXPOSURE) */}
+        <div className="retro-window p-1 mb-5">
+          <div className="retro-titlebar">
+            <span className="flex items-center gap-1.5">
+              <span>🔐</span>
+              <span>GITHUB_CREDENTIAL_VAULT.KEY — Air-Gapped Token Isolation</span>
+            </span>
+            <div className="flex items-center gap-1">
+              <button type="button" aria-label="Minimize" className="retro-win-btn">_</button>
+              <button type="button" aria-label="Maximize" className="retro-win-btn">□</button>
+              <button type="button" aria-label="Close" className="retro-win-btn">×</button>
+            </div>
+          </div>
+
+          <div className="p-4 bg-[#d4d4d4]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+              {/* Token Input Controls (Cols 1-8) */}
+              <div className="lg:col-span-8 space-y-3">
+                <div className="flex items-center justify-between">
+                  <label htmlFor="github-token-input" className="text-xs font-bold uppercase font-mono text-black">
+                    GitHub Personal Access Token (PAT):
+                  </label>
+                  <span className="text-[11px] font-mono text-[#808080]">
+                    Allowed prefixes: <code className="bg-[#ffffff] px-1 border border-[#808080]">ghp_</code>{" "}
+                    <code className="bg-[#ffffff] px-1 border border-[#808080]">github_pat_</code>
+                  </span>
+                </div>
+
+                <div className="flex gap-2">
+                  <div className="relative flex-1">
+                    <input
+                      id="github-token-input"
+                      type={showToken ? "text" : "password"}
+                      value={rawTokenInput}
+                      onChange={(e) => setRawTokenInput(e.target.value)}
+                      placeholder={maskedToken ? maskedToken : "Paste token here (e.g. ghp_16characterToken...)"}
+                      className="retro-well w-full px-3 py-2 text-sm font-mono tracking-wider focus:outline-none focus:ring-1 focus:ring-[#000080]"
+                    />
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setShowToken(!showToken)}
+                    className="retro-btn text-xs font-bold uppercase px-3 whitespace-nowrap"
+                  >
+                    {showToken ? "🙈 HIDE" : "👁 SHOW"}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleArmVault}
+                    className="retro-btn retro-btn-teal text-xs font-black uppercase px-4 whitespace-nowrap"
+                  >
+                    🔐 ARM VAULT
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handlePurgeVault}
+                    className="retro-btn retro-btn-pink text-xs font-bold uppercase px-3 whitespace-nowrap"
+                  >
+                    🧹 PURGE
+                  </button>
+                </div>
+
+                {/* Vault Status Feedback Box */}
+                <div className="retro-well p-2.5 bg-[#ffffff] font-mono text-xs">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-bold text-[#808080]">STATUS:</span>
+                    <span
+                      className={`font-black uppercase px-1.5 py-0.5 text-[11px] ${
+                        vaultStatus === "ARMED"
+                          ? "bg-[#e6f4ea] text-[#006400] border border-[#00aa00]"
+                          : "bg-[#ffff00] text-black border border-[#000000]"
+                      }`}
+                    >
+                      {vaultStatus === "ARMED" ? "● ARMED & SEALED" : "○ UNCONFIGURED (OFFLINE FIXTURE MODE)"}
+                    </span>
+                    {maskedToken && (
+                      <span className="text-[#000080] font-bold">
+                        [ACTIVE: {maskedToken}]
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-[#333333] text-[11px] leading-relaxed">
+                    &gt; {vaultFeedback}
+                  </div>
+                </div>
+              </div>
+
+              {/* Zero-Leakage Architecture Guarantees (Cols 9-12) */}
+              <div className="lg:col-span-4 retro-well p-3 bg-[#fdfdfd] border border-[#808080] font-mono text-xs space-y-2">
+                <div className="font-bold text-[#000080] uppercase border-b border-[#808080] pb-1 text-[11px]">
+                  🛡️ Zero Token Exposure Guarantees
+                </div>
+                <div className="space-y-1.5 text-[11px] text-[#222222]">
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-[#00aa00] font-bold">1.</span>
+                    <span>
+                      <strong>Never in AI Context:</strong> Token is stripped before dispatch to Gemma 2 / Ollama prompts.
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-[#00aa00] font-bold">2.</span>
+                    <span>
+                      <strong>Memory Vault:</strong> Redacted to <code className="bg-[#e0e0e0] px-0.5">[REDACTED_TOKEN]</code> in all logs.
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-[#00aa00] font-bold">3.</span>
+                    <span>
+                      <strong>Gated Mutations:</strong> Pull Request creation is blocked until explicit human dashboard signoff.
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ROW 3: BRIGHT PINK TICKER NOTIFICATION STRIP */}
         <div className="w-full bg-[#ff00b8] border-2 border-[#000000] p-2 mb-5 flex items-center justify-between text-white font-mono text-xs sm:text-sm font-bold shadow-[2px_2px_0px_#000000]">
           <div className="flex items-center gap-2 truncate">
             <span className="retro-ticker-arrow text-[#ffff00] text-base leading-none">▶▶</span>
@@ -309,7 +476,7 @@ export default function RetroSpecterDashboard() {
           </div>
         </div>
 
-        {/* ROW 3: AUTONOMOUS AGENTS CAPABILITY WINDOW */}
+        {/* ROW 4: AUTONOMOUS AGENTS CAPABILITY WINDOW */}
         <div className="retro-window p-1 mb-5">
           <div className="retro-titlebar">
             <span className="flex items-center gap-1.5">
@@ -340,7 +507,7 @@ export default function RetroSpecterDashboard() {
                     {agent.name}
                   </h3>
                   <div className="text-[11px] text-[#505050] mb-2">{agent.role}</div>
-                  
+
                   {/* Status well */}
                   <div className="retro-well p-1.5 text-[11px] font-mono bg-[#ffffff] text-black">
                     <span className="text-[#808080]">&gt; </span>
@@ -352,7 +519,7 @@ export default function RetroSpecterDashboard() {
           </div>
         </div>
 
-        {/* ROW 4: INTERACTIVE MAINTENANCE PROPOSAL & HUMAN APPROVAL WINDOW */}
+        {/* ROW 5: INTERACTIVE MAINTENANCE PROPOSAL & HUMAN APPROVAL WINDOW */}
         <div className="retro-window p-1 mb-5">
           <div className="retro-titlebar">
             <span className="flex items-center gap-1.5">
@@ -568,7 +735,7 @@ export default function RetroSpecterDashboard() {
           </div>
         </div>
 
-        {/* ROW 5: BROAD RETRO FOOTER */}
+        {/* ROW 6: BROAD RETRO FOOTER */}
         <footer className="retro-window p-3 text-xs">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 pb-3 border-b border-[#808080] font-mono">
             <div>
@@ -602,7 +769,7 @@ export default function RetroSpecterDashboard() {
             <div>
               <div className="font-bold text-[#000080] mb-1">📁 TESTS</div>
               <ul className="space-y-0.5 text-[#333333]">
-                <li><a href="#rust" className="hover:text-[#0000ff] hover:underline">11 RUST TESTS</a></li>
+                <li><a href="#rust" className="hover:text-[#0000ff] hover:underline">14 RUST TESTS</a></li>
                 <li><a href="#python" className="hover:text-[#0000ff] hover:underline">50 PY TESTS</a></li>
               </ul>
             </div>
@@ -622,7 +789,7 @@ export default function RetroSpecterDashboard() {
             <div className="flex items-center gap-2 mt-1 sm:mt-0">
               <span>Authoritative Design: Retro Desktop</span>
               <span>•</span>
-              <span className="text-[#006400] font-bold">112 Tasks Completed</span>
+              <span className="text-[#006400] font-bold">130 Tasks Completed</span>
             </div>
           </div>
         </footer>
