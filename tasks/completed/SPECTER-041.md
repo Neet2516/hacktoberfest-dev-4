@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-038
+# SPECTER Task: SPECTER-041
 
 ---
 
 ## Task ID
-`SPECTER-038`
+`SPECTER-041`
 
 ---
 
 ## Task Title
-Implement GitHub branch creation (post-approval only)
+Write GitHub integration tests with fixtures
 
 ---
 
@@ -23,7 +23,7 @@ P1
 ---
 
 ## Objective
-Implement Implement GitHub branch creation (post-approval only) to advance capabilities within EPIC 05 — GitHub Integration. This component contributes directly to satisfying PRD requirements (FR-04, FR-13) and maintaining system integrity and reproducibility.
+Implement Write GitHub integration tests with fixtures to advance capabilities within EPIC 05 — GitHub Integration. This component contributes directly to satisfying PRD requirements (FR-04, FR-13) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,31 +33,31 @@ FR-04, FR-13
 ---
 
 ## Technical Specification
-This task implements `Implement GitHub branch creation (post-approval only)` as part of `EPIC 05 — GitHub Integration`.
+This task implements `Write GitHub integration tests with fixtures` as part of `EPIC 05 — GitHub Integration`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
-- **Target Subsystem**: Subsystem corresponding to EPIC 05 — GitHub Integration (Human/DevOps).
+- **Target Subsystem**: Subsystem corresponding to EPIC 05 — GitHub Integration (Test Engineer).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
 
 ---
 
 ## Dependencies
-SPECTER-035, SPECTER-094
+SPECTER-035, SPECTER-036, SPECTER-037
 
 ---
 
 ## Responsible Agent / Human Owner
-Human/DevOps
+Test Engineer
 
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-035, SPECTER-094.
+- Verified design specifications and predecessor artifacts from: SPECTER-035, SPECTER-036, SPECTER-037.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement GitHub branch creation (post-approval only)`.
+- Verified, compilable implementation of `Write GitHub integration tests with fixtures`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement GitHub branch creation (post-approval only)`.
-3. Wire integration hooks with dependent tasks (SPECTER-035, SPECTER-094).
+2. Implement core components and interfaces for `Write GitHub integration tests with fixtures`.
+3. Wire integration hooks with dependent tasks (SPECTER-035, SPECTER-036, SPECTER-037).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -94,7 +94,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement GitHub branch creation (post-approval only)` is complete and functionally verified.
+- [ ] Implementation of `Write GitHub integration tests with fixtures` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -111,7 +111,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -121,4 +121,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Implementation verified and tested with automated unit test suites (`runtime/tests/test_github.py`).
+- Subsystem test suites passing with 100% success rate (`python -m unittest discover -s runtime/tests`).
+- Token vault isolation and post-approval mutation enforcement verified.

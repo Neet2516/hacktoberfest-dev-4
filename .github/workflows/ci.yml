@@ -1,0 +1,48 @@
+name: SPECTER CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend-test:
+    name: Backend Rust Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Run Cargo Tests
+        run: |
+          cd backend
+          cargo test --verbose
+
+  runtime-test:
+    name: Agent Runtime Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run Runtime Unit Tests
+        env:
+          SPECTER_ENV: test
+          PYTHONPATH: runtime
+        run: |
+          python -m unittest discover -s runtime/tests -v
+
+  frontend-build:
+    name: Frontend Build Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build Next.js Dashboard
+        run: |
+          cd frontend
+          npm ci
+          npm run build

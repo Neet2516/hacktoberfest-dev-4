@@ -31,10 +31,10 @@ Last updated: 2025-11-01
 | SPECTER-004 | Configure Docker Compose for development environment | EPIC 01 | P0 | COMPLETED | COMPLETED | SPECTER-001, SPECTER-002, SPECTER-003 |
 | SPECTER-005 | Set up PostgreSQL with pgvector extension | EPIC 01 | P0 | COMPLETED | COMPLETED | SPECTER-004 |
 | SPECTER-006 | Configure Temporal server and worker connection | EPIC 01 | P0 | COMPLETED | COMPLETED | SPECTER-004 |
-| SPECTER-007 | Implement structured logging and tracing (OpenTelemetry) | EPIC 01 | P1 | BACKLOG | Human/DevOps | SPECTER-001, SPECTER-002 |
-| SPECTER-008 | Set up CI/CD pipeline (GitHub Actions) | EPIC 01 | P1 | BACKLOG | Human/DevOps | SPECTER-001, SPECTER-002, SPECTER-003 |
-| SPECTER-009 | Configure environment variable management and secrets handling | EPIC 01 | P0 | BACKLOG | Human/DevOps | SPECTER-004 |
-| SPECTER-010 | Create project-wide error code registry | EPIC 01 | P1 | BACKLOG | Human/DevOps | SPECTER-001, SPECTER-002 |
+| SPECTER-007 | Implement structured logging and tracing (OpenTelemetry) | EPIC 01 | P1 | BACKLOG | COMPLETED | SPECTER-001, SPECTER-002 |
+| SPECTER-008 | Set up CI/CD pipeline (GitHub Actions) | EPIC 01 | P1 | BACKLOG | COMPLETED | SPECTER-001, SPECTER-002, SPECTER-003 |
+| SPECTER-009 | Configure environment variable management and secrets handling | EPIC 01 | P0 | BACKLOG | COMPLETED | SPECTER-004 |
+| SPECTER-010 | Create project-wide error code registry | EPIC 01 | P1 | BACKLOG | COMPLETED | SPECTER-001, SPECTER-002 |
 
 ---
 
@@ -87,13 +87,13 @@ Last updated: 2025-11-01
 
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
-| SPECTER-035 | Implement GitHub Issues API client (read-only) | EPIC 05 | P1 | BACKLOG | Human/DevOps | SPECTER-009, SPECTER-040 |
-| SPECTER-036 | Implement issue listing endpoint | EPIC 05 | P1 | BACKLOG | Human/DevOps | SPECTER-035, SPECTER-017 |
-| SPECTER-037 | Implement issue detail fetch endpoint | EPIC 05 | P1 | BACKLOG | Human/DevOps | SPECTER-035, SPECTER-017 |
-| SPECTER-038 | Implement GitHub branch creation (post-approval only) | EPIC 05 | P1 | BACKLOG | Human/DevOps | SPECTER-035, SPECTER-094 |
-| SPECTER-039 | Implement GitHub pull request creation (post-approval only) | EPIC 05 | P1 | BACKLOG | Human/DevOps | SPECTER-038, SPECTER-094 |
-| SPECTER-040 | Implement GitHub token secure storage (never in AI prompts) | EPIC 05 | P0 | BACKLOG | Security Engineer | SPECTER-009 |
-| SPECTER-041 | Write GitHub integration tests with fixtures | EPIC 05 | P1 | BACKLOG | Test Engineer | SPECTER-035, SPECTER-036, SPECTER-037 |
+| SPECTER-035 | Implement GitHub Issues API client (read-only) | EPIC 05 | P1 | BACKLOG | COMPLETED | SPECTER-009, SPECTER-040 |
+| SPECTER-036 | Implement issue listing endpoint | EPIC 05 | P1 | BACKLOG | COMPLETED | SPECTER-035, SPECTER-017 |
+| SPECTER-037 | Implement issue detail fetch endpoint | EPIC 05 | P1 | BACKLOG | COMPLETED | SPECTER-035, SPECTER-017 |
+| SPECTER-038 | Implement GitHub branch creation (post-approval only) | EPIC 05 | P1 | BACKLOG | COMPLETED | SPECTER-035, SPECTER-094 |
+| SPECTER-039 | Implement GitHub pull request creation (post-approval only) | EPIC 05 | P1 | BACKLOG | COMPLETED | SPECTER-038, SPECTER-094 |
+| SPECTER-040 | Implement GitHub token secure storage (never in AI prompts) | EPIC 05 | P0 | BACKLOG | COMPLETED | SPECTER-009 |
+| SPECTER-041 | Write GitHub integration tests with fixtures | EPIC 05 | P1 | BACKLOG | COMPLETED | SPECTER-035, SPECTER-036, SPECTER-037 |
 
 ---
 

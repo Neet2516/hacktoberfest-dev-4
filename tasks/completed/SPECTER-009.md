@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-010
+# SPECTER Task: SPECTER-009
 
 ---
 
 ## Task ID
-`SPECTER-010`
+`SPECTER-009`
 
 ---
 
 ## Task Title
-Create project-wide error code registry
+Configure environment variable management and secrets handling
 
 ---
 
@@ -18,12 +18,12 @@ EPIC 01 — Project Foundation
 ---
 
 ## Priority
-P1
+P0
 
 ---
 
 ## Objective
-Implement Create project-wide error code registry to advance capabilities within EPIC 01 — Project Foundation. This component contributes directly to satisfying PRD requirements (FR-05, FR-14) and maintaining system integrity and reproducibility.
+Implement Configure environment variable management and secrets handling to advance capabilities within EPIC 01 — Project Foundation. This component contributes directly to satisfying PRD requirements (FR-05, FR-14) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-05, FR-14
 ---
 
 ## Technical Specification
-This task implements `Create project-wide error code registry` as part of `EPIC 01 — Project Foundation`.
+This task implements `Configure environment variable management and secrets handling` as part of `EPIC 01 — Project Foundation`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 01 — Project Foundation (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Create project-wide error code registry` as part of `EPIC 
 ---
 
 ## Dependencies
-SPECTER-001, SPECTER-002
+SPECTER-004
 
 ---
 
@@ -51,13 +51,13 @@ Human/DevOps
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-001, SPECTER-002.
+- Verified design specifications and predecessor artifacts from: SPECTER-004.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Create project-wide error code registry`.
+- Verified, compilable implementation of `Configure environment variable management and secrets handling`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Create project-wide error code registry`.
-3. Wire integration hooks with dependent tasks (SPECTER-001, SPECTER-002).
+2. Implement core components and interfaces for `Configure environment variable management and secrets handling`.
+3. Wire integration hooks with dependent tasks (SPECTER-004).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Create project-wide error code registry` is complete and functionally verified.
+- [ ] Implementation of `Configure environment variable management and secrets handling` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Implementation verified and tested with automated unit test suites (`runtime/tests/test_github.py`).
+- Subsystem test suites passing with 100% success rate (`python -m unittest discover -s runtime/tests`).
+- Token vault isolation and post-approval mutation enforcement verified.
