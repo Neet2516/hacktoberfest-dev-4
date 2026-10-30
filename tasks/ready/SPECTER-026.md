@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-025
+# SPECTER Task: SPECTER-026
 
 ---
 
 ## Task ID
-`SPECTER-025`
+`SPECTER-026`
 
 ---
 
 ## Task Title
-Implement file system isolation (no host path exposure)
+Implement Git history extraction (commits, authors, dates)
 
 ---
 
@@ -18,12 +18,12 @@ EPIC 03 — Repository Ingestion
 ---
 
 ## Priority
-P0
+P2
 
 ---
 
 ## Objective
-Implement Implement file system isolation (no host path exposure) to advance capabilities within EPIC 03 — Repository Ingestion. This component contributes directly to satisfying PRD requirements (FR-01, FR-02, FR-03) and maintaining system integrity and reproducibility.
+Implement Implement Git history extraction (commits, authors, dates) to advance capabilities within EPIC 03 — Repository Ingestion. This component contributes directly to satisfying PRD requirements (FR-01, FR-02, FR-03) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,31 +33,31 @@ FR-01, FR-02, FR-03
 ---
 
 ## Technical Specification
-This task implements `Implement file system isolation (no host path exposure)` as part of `EPIC 03 — Repository Ingestion`.
+This task implements `Implement Git history extraction (commits, authors, dates)` as part of `EPIC 03 — Repository Ingestion`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
-- **Target Subsystem**: Subsystem corresponding to EPIC 03 — Repository Ingestion (Security Engineer).
+- **Target Subsystem**: Subsystem corresponding to EPIC 03 — Repository Ingestion (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
 
 ---
 
 ## Dependencies
-SPECTER-024
+SPECTER-023
 
 ---
 
 ## Responsible Agent / Human Owner
-Security Engineer
+Human/DevOps
 
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-024.
+- Verified design specifications and predecessor artifacts from: SPECTER-023.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement file system isolation (no host path exposure)`.
+- Verified, compilable implementation of `Implement Git history extraction (commits, authors, dates)`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Security Engineer
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement file system isolation (no host path exposure)`.
-3. Wire integration hooks with dependent tasks (SPECTER-024).
+2. Implement core components and interfaces for `Implement Git history extraction (commits, authors, dates)`.
+3. Wire integration hooks with dependent tasks (SPECTER-023).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Security Engineer
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement file system isolation (no host path exposure)` is complete and functionally verified.
+- [ ] Implementation of `Implement Git history extraction (commits, authors, dates)` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.

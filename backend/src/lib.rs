@@ -9,4 +9,4 @@ pub use config::AppConfig;
 pub use db::DatabaseService;
 pub use models::{CreateRepositoryDto, Repository, TaskEntity, TaskStatus};
 pub use routes::{create_router, create_router_with_state, AppState};
-pub use workspace::WorkspaceManager;
+pub use workspace::{VirtualPathMapper, WorkspaceError, WorkspaceManager};
