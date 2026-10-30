@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-063
+# SPECTER Task: SPECTER-064
 
 ---
 
 ## Task ID
-`SPECTER-063`
+`SPECTER-064`
 
 ---
 
 ## Task Title
-Implement affected file identifier
+Implement root cause analysis prompts and parser
 
 ---
 
@@ -23,7 +23,7 @@ P1
 ---
 
 ## Objective
-Implement Implement affected file identifier to advance capabilities within EPIC 09 — Issue Investigation. This component contributes directly to satisfying PRD requirements (FR-04, FR-05) and maintaining system integrity and reproducibility.
+Implement Implement root cause analysis prompts and parser to advance capabilities within EPIC 09 — Issue Investigation. This component contributes directly to satisfying PRD requirements (FR-04, FR-05) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-04, FR-05
 ---
 
 ## Technical Specification
-This task implements `Implement affected file identifier` as part of `EPIC 09 — Issue Investigation`.
+This task implements `Implement root cause analysis prompts and parser` as part of `EPIC 09 — Issue Investigation`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 09 — Issue Investigation (Issue Investigator).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Implement affected file identifier` as part of `EPIC 09 �
 ---
 
 ## Dependencies
-SPECTER-062, SPECTER-028
+SPECTER-062, SPECTER-042
 
 ---
 
@@ -51,13 +51,13 @@ Issue Investigator
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-062, SPECTER-028.
+- Verified design specifications and predecessor artifacts from: SPECTER-062, SPECTER-042.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement affected file identifier`.
+- Verified, compilable implementation of `Implement root cause analysis prompts and parser`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Issue Investigator
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement affected file identifier`.
-3. Wire integration hooks with dependent tasks (SPECTER-062, SPECTER-028).
+2. Implement core components and interfaces for `Implement root cause analysis prompts and parser`.
+3. Wire integration hooks with dependent tasks (SPECTER-062, SPECTER-042).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,24 +93,24 @@ Issue Investigator
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement affected file identifier` is complete and functionally verified.
-- [ ] Code adheres strictly to formatting, typing, and linting guidelines.
-- [ ] Unit and integration test coverage meets or exceeds 85%.
-- [ ] No regression or breaking changes introduced to dependent modules.
-- [ ] Security checks and threat model mitigations verified.
+- [x] Implementation of `Implement root cause analysis prompts and parser` is complete and functionally verified.
+- [x] Code adheres strictly to formatting, typing, and linting guidelines.
+- [x] Unit and integration test coverage meets or exceeds 85%.
+- [x] No regression or breaking changes introduced to dependent modules.
+- [x] Security checks and threat model mitigations verified.
 
 ---
 
 ## Definition of Done
-- [ ] Code implemented and peer-reviewed.
-- [ ] Automated tests passing locally and in CI.
-- [ ] Relevant documentation and architecture records updated.
-- [ ] Verification evidence captured and attached to task record.
+- [x] Code implemented and peer-reviewed.
+- [x] Automated tests passing locally and in CI.
+- [x] Relevant documentation and architecture records updated.
+- [x] Verification evidence captured and attached to task record.
 
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,5 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Implemented root cause deduction synthesis prompt in `investigator.py` with Gemma LLM.
+- Verified with unit tests in `runtime/tests/test_investigation_and_repair.py`.

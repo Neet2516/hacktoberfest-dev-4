@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-069
+# SPECTER Task: SPECTER-068
 
 ---
 
 ## Task ID
-`SPECTER-069`
+`SPECTER-068`
 
 ---
 
 ## Task Title
-Implement minimal patch generator (git diff format)
+Implement Ghost Repairer agent (Python)
 
 ---
 
@@ -23,7 +23,7 @@ P1
 ---
 
 ## Objective
-Implement Implement minimal patch generator (git diff format) to advance capabilities within EPIC 10 — Autonomous Code Repair. This component contributes directly to satisfying PRD requirements (FR-07) and maintaining system integrity and reproducibility.
+Implement Implement Ghost Repairer agent (Python) to advance capabilities within EPIC 10 — Autonomous Code Repair. This component contributes directly to satisfying PRD requirements (FR-07) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-07
 ---
 
 ## Technical Specification
-This task implements `Implement minimal patch generator (git diff format)` as part of `EPIC 10 — Autonomous Code Repair`.
+This task implements `Implement Ghost Repairer agent (Python)` as part of `EPIC 10 — Autonomous Code Repair`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 10 — Autonomous Code Repair (Ghost Repairer).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Implement minimal patch generator (git diff format)` as pa
 ---
 
 ## Dependencies
-SPECTER-068
+SPECTER-043, SPECTER-066
 
 ---
 
@@ -51,13 +51,13 @@ Ghost Repairer
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-068.
+- Verified design specifications and predecessor artifacts from: SPECTER-043, SPECTER-066.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement minimal patch generator (git diff format)`.
+- Verified, compilable implementation of `Implement Ghost Repairer agent (Python)`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Ghost Repairer
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement minimal patch generator (git diff format)`.
-3. Wire integration hooks with dependent tasks (SPECTER-068).
+2. Implement core components and interfaces for `Implement Ghost Repairer agent (Python)`.
+3. Wire integration hooks with dependent tasks (SPECTER-043, SPECTER-066).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,24 +93,24 @@ Ghost Repairer
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement minimal patch generator (git diff format)` is complete and functionally verified.
-- [ ] Code adheres strictly to formatting, typing, and linting guidelines.
-- [ ] Unit and integration test coverage meets or exceeds 85%.
-- [ ] No regression or breaking changes introduced to dependent modules.
-- [ ] Security checks and threat model mitigations verified.
+- [x] Implementation of `Implement Ghost Repairer agent (Python)` is complete and functionally verified.
+- [x] Code adheres strictly to formatting, typing, and linting guidelines.
+- [x] Unit and integration test coverage meets or exceeds 85%.
+- [x] No regression or breaking changes introduced to dependent modules.
+- [x] Security checks and threat model mitigations verified.
 
 ---
 
 ## Definition of Done
-- [ ] Code implemented and peer-reviewed.
-- [ ] Automated tests passing locally and in CI.
-- [ ] Relevant documentation and architecture records updated.
-- [ ] Verification evidence captured and attached to task record.
+- [x] Code implemented and peer-reviewed.
+- [x] Automated tests passing locally and in CI.
+- [x] Relevant documentation and architecture records updated.
+- [x] Verification evidence captured and attached to task record.
 
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,5 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Implemented `GhostRepairerAgent` in `runtime/specter_runtime/repair/repairer.py`.
+- Verified with unit tests in `runtime/tests/test_investigation_and_repair.py`.

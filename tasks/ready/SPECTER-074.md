@@ -1,19 +1,19 @@
-# SPECTER Task: SPECTER-064
+# SPECTER Task: SPECTER-074
 
 ---
 
 ## Task ID
-`SPECTER-064`
+`SPECTER-074`
 
 ---
 
 ## Task Title
-Implement root cause analysis prompts and parser
+Implement Adversarial Reviewer agent (Python)
 
 ---
 
 ## Epic
-EPIC 09 — Issue Investigation
+EPIC 11 — Adversarial Code Review
 
 ---
 
@@ -23,41 +23,41 @@ P1
 ---
 
 ## Objective
-Implement Implement root cause analysis prompts and parser to advance capabilities within EPIC 09 — Issue Investigation. This component contributes directly to satisfying PRD requirements (FR-04, FR-05) and maintaining system integrity and reproducibility.
+Implement Implement Adversarial Reviewer agent (Python) to advance capabilities within EPIC 11 — Adversarial Code Review. This component contributes directly to satisfying PRD requirements (FR-08) and maintaining system integrity and reproducibility.
 
 ---
 
 ## PRD Requirement Reference
-FR-04, FR-05
+FR-08
 
 ---
 
 ## Technical Specification
-This task implements `Implement root cause analysis prompts and parser` as part of `EPIC 09 — Issue Investigation`.
+This task implements `Implement Adversarial Reviewer agent (Python)` as part of `EPIC 11 — Adversarial Code Review`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
-- **Target Subsystem**: Subsystem corresponding to EPIC 09 — Issue Investigation (Issue Investigator).
+- **Target Subsystem**: Subsystem corresponding to EPIC 11 — Adversarial Code Review (Adversarial Reviewer).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
 
 ---
 
 ## Dependencies
-SPECTER-062, SPECTER-042
+SPECTER-043, SPECTER-071
 
 ---
 
 ## Responsible Agent / Human Owner
-Issue Investigator
+Adversarial Reviewer
 
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-062, SPECTER-042.
+- Verified design specifications and predecessor artifacts from: SPECTER-043, SPECTER-071.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement root cause analysis prompts and parser`.
+- Verified, compilable implementation of `Implement Adversarial Reviewer agent (Python)`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,15 +65,15 @@ Issue Investigator
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement root cause analysis prompts and parser`.
-3. Wire integration hooks with dependent tasks (SPECTER-062, SPECTER-042).
+2. Implement core components and interfaces for `Implement Adversarial Reviewer agent (Python)`.
+3. Wire integration hooks with dependent tasks (SPECTER-043, SPECTER-071).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
 ---
 
 ## Files Affected
-- Modules associated with EPIC 09 — Issue Investigation in backend, agent runtime, or frontend.
+- Modules associated with EPIC 11 — Adversarial Code Review in backend, agent runtime, or frontend.
 - Corresponding test suites and documentation references.
 
 ---
@@ -93,7 +93,7 @@ Issue Investigator
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement root cause analysis prompts and parser` is complete and functionally verified.
+- [ ] Implementation of `Implement Adversarial Reviewer agent (Python)` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Issue Investigator
 ---
 
 ## Current Status
-BACKLOG
+READY
 
 ---
 
