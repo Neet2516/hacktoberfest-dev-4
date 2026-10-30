@@ -19,3 +19,4 @@ ENV SPECTER_ENV=production
 EXPOSE 8080
 
 CMD ["/app/specter-backend"]
+

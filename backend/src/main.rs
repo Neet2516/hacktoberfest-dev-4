@@ -1,10 +1,10 @@
-use specter_backend::{create_router, AppConfig};
+use specter_backend::{create_router_with_state, AppConfig, AppState, DatabaseService};
+use std::sync::Arc;
 use tokio::net::TcpListener;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Initialize structured tracing
     tracing_subscriber::registry()
         .with(
             tracing_subscriber::EnvFilter::try_from_default_env()
@@ -24,7 +24,20 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         "Starting SPECTER backend service"
     );
 
-    let app = create_router();
+    // Optional connection to database on startup
+    let db = match DatabaseService::connect(&config.database_url, config.max_db_connections, 5).await {
+        Ok(service) => {
+            tracing::info!("Connected to PostgreSQL database");
+            Some(Arc::new(service))
+        }
+        Err(err) => {
+            tracing::warn!(error = %err, "Proceeding without active database connection");
+            None
+        }
+    };
+
+    let app_state = AppState { db };
+    let app = create_router_with_state(app_state);
     let listener = TcpListener::bind(&addr).await?;
     
     tracing::info!("Listening on http://{}", addr);

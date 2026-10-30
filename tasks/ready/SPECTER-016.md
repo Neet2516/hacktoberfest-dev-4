@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-011
+# SPECTER Task: SPECTER-016
 
 ---
 
 ## Task ID
-`SPECTER-011`
+`SPECTER-016`
 
 ---
 
 ## Task Title
-Implement PostgreSQL connection pool in Rust
+Implement REST API health and readiness endpoints
 
 ---
 
@@ -18,12 +18,12 @@ EPIC 02 — Backend Infrastructure
 ---
 
 ## Priority
-P0
+P1
 
 ---
 
 ## Objective
-Implement Implement PostgreSQL connection pool in Rust to advance capabilities within EPIC 02 — Backend Infrastructure. This component contributes directly to satisfying PRD requirements (FR-02, FR-10, FR-14) and maintaining system integrity and reproducibility.
+Implement Implement REST API health and readiness endpoints to advance capabilities within EPIC 02 — Backend Infrastructure. This component contributes directly to satisfying PRD requirements (FR-02, FR-10, FR-14) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-02, FR-10, FR-14
 ---
 
 ## Technical Specification
-This task implements `Implement PostgreSQL connection pool in Rust` as part of `EPIC 02 — Backend Infrastructure`.
+This task implements `Implement REST API health and readiness endpoints` as part of `EPIC 02 — Backend Infrastructure`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 02 — Backend Infrastructure (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Implement PostgreSQL connection pool in Rust` as part of `
 ---
 
 ## Dependencies
-SPECTER-001, SPECTER-005
+SPECTER-011
 
 ---
 
@@ -51,13 +51,13 @@ Human/DevOps
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-001, SPECTER-005.
+- Verified design specifications and predecessor artifacts from: SPECTER-011.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement PostgreSQL connection pool in Rust`.
+- Verified, compilable implementation of `Implement REST API health and readiness endpoints`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement PostgreSQL connection pool in Rust`.
-3. Wire integration hooks with dependent tasks (SPECTER-001, SPECTER-005).
+2. Implement core components and interfaces for `Implement REST API health and readiness endpoints`.
+3. Wire integration hooks with dependent tasks (SPECTER-011).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement PostgreSQL connection pool in Rust` is complete and functionally verified.
+- [ ] Implementation of `Implement REST API health and readiness endpoints` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.

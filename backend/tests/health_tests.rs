@@ -73,3 +73,4 @@ async fn test_version_endpoint() {
 
     assert_eq!(json["challenge"], "Hacktoberfest 2026 — Ghost in the Machine");
 }
+
