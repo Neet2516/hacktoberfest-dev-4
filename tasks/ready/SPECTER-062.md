@@ -110,7 +110,7 @@ Issue Investigator
 ---
 
 ## Current Status
-BACKLOG
+READY
 
 ---
 

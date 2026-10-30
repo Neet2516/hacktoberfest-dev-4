@@ -21,3 +21,4 @@ ENV TEMPORAL_HOST=temporal:7233
 ENV OLLAMA_HOST=http://ollama:11434
 
 CMD ["python", "-m", "specter_runtime"]
+

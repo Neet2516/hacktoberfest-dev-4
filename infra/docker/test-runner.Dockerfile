@@ -25,3 +25,4 @@ WORKDIR /workspace
 
 # Default command displays isolation message
 CMD ["echo", "SPECTER Isolated Test Sandbox Ready. Networking disabled."]
+
