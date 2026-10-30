@@ -1,0 +1,63 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: specter-postgres-prod
+    restart: always
+    environment:
+      POSTGRES_DB: specter
+      POSTGRES_USER: specter_admin
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - specter-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U specter_admin -d specter"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: specter-backend-prod
+    restart: always
+    environment:
+      SPECTER_HOST: 0.0.0.0
+      SPECTER_PORT: 8080
+      SPECTER_ENV: production
+      DATABASE_URL: postgresql://specter_admin:specter_prod_pass@postgres:5432/specter
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - specter-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: specter-frontend-prod
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - specter-net
+
+volumes:
+  postgres_data:
+
+networks:
+  specter-net:
+    driver: bridge

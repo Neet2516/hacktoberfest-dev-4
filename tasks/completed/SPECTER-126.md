@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-127
+# SPECTER Task: SPECTER-126
 
 ---
 
 ## Task ID
-`SPECTER-127`
+`SPECTER-126`
 
 ---
 
 ## Task Title
-Write API reference documentation
+Write deployment runbook
 
 ---
 
@@ -23,7 +23,7 @@ P2
 ---
 
 ## Objective
-Implement Write API reference documentation to advance capabilities within EPIC 18 — Deployment and Documentation. This component contributes directly to satisfying PRD requirements (FR-01, FR-12) and maintaining system integrity and reproducibility.
+Implement Write deployment runbook to advance capabilities within EPIC 18 — Deployment and Documentation. This component contributes directly to satisfying PRD requirements (FR-01, FR-12) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-01, FR-12
 ---
 
 ## Technical Specification
-This task implements `Write API reference documentation` as part of `EPIC 18 — Deployment and Documentation`.
+This task implements `Write deployment runbook` as part of `EPIC 18 — Deployment and Documentation`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 18 — Deployment and Documentation (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Write API reference documentation` as part of `EPIC 18 —
 ---
 
 ## Dependencies
-SPECTER-016, SPECTER-021, SPECTER-036, SPECTER-037, SPECTER-059
+SPECTER-125
 
 ---
 
@@ -51,13 +51,13 @@ Human/DevOps
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-016, SPECTER-021, SPECTER-036, SPECTER-037, SPECTER-059.
+- Verified design specifications and predecessor artifacts from: SPECTER-125.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Write API reference documentation`.
+- Verified, compilable implementation of `Write deployment runbook`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Write API reference documentation`.
-3. Wire integration hooks with dependent tasks (SPECTER-016, SPECTER-021, SPECTER-036, SPECTER-037, SPECTER-059).
+2. Implement core components and interfaces for `Write deployment runbook`.
+3. Wire integration hooks with dependent tasks (SPECTER-125).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Write API reference documentation` is complete and functionally verified.
+- [ ] Implementation of `Write deployment runbook` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Deployment and documentation completed for EPIC 18.
+- Production compose manifest created (`docker-compose.prod.yml`).
+- Runbooks and developer guides authored in `docs/` (`DEPLOYMENT_RUNBOOK.md`, `API_REFERENCE.md`, `AGENT_DEVELOPER_GUIDE.md`, `SYSTEM_OPERATOR_GUIDE.md`, `DEMO_GUIDE.md`).

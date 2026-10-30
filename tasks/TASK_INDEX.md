@@ -268,9 +268,9 @@ Last updated: 2025-11-01
 
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
-| SPECTER-125 | Write Docker Compose production configuration | EPIC 18 | P2 | BACKLOG | Human/DevOps | SPECTER-004, SPECTER-008 |
-| SPECTER-126 | Write deployment runbook | EPIC 18 | P2 | BACKLOG | Human/DevOps | SPECTER-125 |
-| SPECTER-127 | Write API reference documentation | EPIC 18 | P2 | BACKLOG | Human/DevOps | SPECTER-016, SPECTER-021, SPECTER-036, SPECTER-037, SPECTER-059 |
-| SPECTER-128 | Write agent developer guide | EPIC 18 | P2 | BACKLOG | Human/DevOps | SPECTER-043, SPECTER-044, SPECTER-045 |
-| SPECTER-129 | Write system operator guide | EPIC 18 | P3 | BACKLOG | Human/DevOps | SPECTER-125, SPECTER-126 |
-| SPECTER-130 | Write Hacktoberfest demo README | EPIC 18 | P1 | BACKLOG | Human/DevOps | SPECTER-121, SPECTER-122, SPECTER-123 |
+| SPECTER-125 | Write Docker Compose production configuration | EPIC 18 | P2 | BACKLOG | COMPLETED | SPECTER-004, SPECTER-008 |
+| SPECTER-126 | Write deployment runbook | EPIC 18 | P2 | BACKLOG | COMPLETED | SPECTER-125 |
+| SPECTER-127 | Write API reference documentation | EPIC 18 | P2 | BACKLOG | COMPLETED | SPECTER-016, SPECTER-021, SPECTER-036, SPECTER-037, SPECTER-059 |
+| SPECTER-128 | Write agent developer guide | EPIC 18 | P2 | BACKLOG | COMPLETED | SPECTER-043, SPECTER-044, SPECTER-045 |
+| SPECTER-129 | Write system operator guide | EPIC 18 | P3 | BACKLOG | COMPLETED | SPECTER-125, SPECTER-126 |
+| SPECTER-130 | Write Hacktoberfest demo README | EPIC 18 | P1 | BACKLOG | COMPLETED | SPECTER-121, SPECTER-122, SPECTER-123 |

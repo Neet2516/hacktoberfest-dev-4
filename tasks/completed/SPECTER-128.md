@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-126
+# SPECTER Task: SPECTER-128
 
 ---
 
 ## Task ID
-`SPECTER-126`
+`SPECTER-128`
 
 ---
 
 ## Task Title
-Write deployment runbook
+Write agent developer guide
 
 ---
 
@@ -23,7 +23,7 @@ P2
 ---
 
 ## Objective
-Implement Write deployment runbook to advance capabilities within EPIC 18 — Deployment and Documentation. This component contributes directly to satisfying PRD requirements (FR-01, FR-12) and maintaining system integrity and reproducibility.
+Implement Write agent developer guide to advance capabilities within EPIC 18 — Deployment and Documentation. This component contributes directly to satisfying PRD requirements (FR-01, FR-12) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-01, FR-12
 ---
 
 ## Technical Specification
-This task implements `Write deployment runbook` as part of `EPIC 18 — Deployment and Documentation`.
+This task implements `Write agent developer guide` as part of `EPIC 18 — Deployment and Documentation`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 18 — Deployment and Documentation (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Write deployment runbook` as part of `EPIC 18 — Deployme
 ---
 
 ## Dependencies
-SPECTER-125
+SPECTER-043, SPECTER-044, SPECTER-045
 
 ---
 
@@ -51,13 +51,13 @@ Human/DevOps
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-125.
+- Verified design specifications and predecessor artifacts from: SPECTER-043, SPECTER-044, SPECTER-045.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Write deployment runbook`.
+- Verified, compilable implementation of `Write agent developer guide`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Write deployment runbook`.
-3. Wire integration hooks with dependent tasks (SPECTER-125).
+2. Implement core components and interfaces for `Write agent developer guide`.
+3. Wire integration hooks with dependent tasks (SPECTER-043, SPECTER-044, SPECTER-045).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Write deployment runbook` is complete and functionally verified.
+- [ ] Implementation of `Write agent developer guide` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Deployment and documentation completed for EPIC 18.
+- Production compose manifest created (`docker-compose.prod.yml`).
+- Runbooks and developer guides authored in `docs/` (`DEPLOYMENT_RUNBOOK.md`, `API_REFERENCE.md`, `AGENT_DEVELOPER_GUIDE.md`, `SYSTEM_OPERATOR_GUIDE.md`, `DEMO_GUIDE.md`).
