@@ -13,6 +13,10 @@
 
 ---
 
+![SPECTER 98 Retro OS Desktop Banner](docs/screenshots/dashboard-hero.png)
+
+---
+
 ## 💀 The Problem: The Open-Source Cemetery
 
 Every day, thousands of open-source packages that form the foundation of production software are quietly abandoned. Maintainers burn out, switch jobs, or lose time. Downstream developers are left stranded when a simple deprecation or buffer underflow breaks in a modern toolchain.
@@ -60,6 +64,37 @@ Instead of a monolithic prompt, SPECTER organizes **six specialized autonomous A
 - 📦 **Tester Agent (Air-Gapped Sandbox):** Executes builds and test suites inside hardened, ephemeral Docker containers enforced with `--network none` and read-only host mounts.
 - 🔒 **Human-in-the-Loop Gate & Zero-Leakage Credential Vault:** GitHub Personal Access Tokens (PATs) are vaulted in isolated backend memory, strictly quarantined from AI prompt contexts, and gated behind explicit human approval before any Pull Request is created.
 - 🖥️ **Retro OS Interface (`SPECTER 98`):** Authentic, accessible retro desktop environment built with Next.js, featuring window furniture, CRT telemetry, Start Menu, and unified system tray.
+
+---
+
+## 📸 Visual Walkthrough & System Screenshots
+
+### 1. Retro OS Desktop Environment (`SPECTER 98`)
+Featuring authentic retro window bevels, phosphor-green CRT telemetry monitor, live agent mesh status LED, and classic Start Menu navigation.
+
+![SPECTER 98 Desktop Overview](docs/screenshots/dashboard-hero.png)
+
+### 2. Zero-Leakage GitHub Credential Vault (Air-Gapped Security)
+Client-isolated PAT management that guarantees developer tokens are never injected into LLM prompt contexts, masking sensitive secrets in real time with immediate purging capabilities.
+
+![Zero-Leakage Credential Vault](docs/screenshots/credential-vault.png)
+
+### 3. Coordinated 6-Agent Autonomous Mesh Controller
+Real-time telemetry and state monitoring for Archaeologist, Investigator, Repairer, Reviewer, Tester, and Human Gate agents.
+
+![Autonomous Agent Mesh Controller](docs/screenshots/agent-mesh.png)
+
+### 4. Interactive Maintenance Proposal & Human Gate Signoff
+Side-by-side git diff inspection, regression risk analysis, and cryptographic human signoff gating before any remote branch or PR mutation occurs.
+
+![Maintenance Proposal Viewer & Human Gate](docs/screenshots/proposal-viewer.png)
+
+<details>
+<summary><b>🔍 Click to view Full-Page High-Resolution Dashboard</b></summary>
+
+![Full Desktop Dashboard](docs/screenshots/specter-full-dashboard.png)
+
+</details>
 
 ---
 
@@ -266,3 +301,4 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
   <b>SPECTER 👻: The Ghost Maintainer</b> — Awakening dead software with autonomous precision.<br>
   Crafted with ❤️ by <a href="https://github.com/Neet2516">Neet2516</a> for Hacktoberfest 2026.
 </p>
+
