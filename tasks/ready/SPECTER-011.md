@@ -110,7 +110,7 @@ Human/DevOps
 ---
 
 ## Current Status
-BACKLOG
+READY
 
 ---
 

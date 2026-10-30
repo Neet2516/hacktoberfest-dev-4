@@ -98,3 +98,4 @@ with open('logs/devrelay_session_payload.json', 'w', encoding='utf-8') as f:
     json.dump(output_payload, f, indent=2)
 
 print(f"Generated normalized DevRelay session payload with {len(merged_messages)} merged messages.")
+

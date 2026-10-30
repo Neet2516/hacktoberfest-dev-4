@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-001
+# SPECTER Task: SPECTER-006
 
 ---
 
 ## Task ID
-`SPECTER-001`
+`SPECTER-006`
 
 ---
 
 ## Task Title
-Initialize Rust Axum API service skeleton
+Configure Temporal server and worker connection
 
 ---
 
@@ -23,7 +23,7 @@ P0
 ---
 
 ## Objective
-Implement Initialize Rust Axum API service skeleton to advance capabilities within EPIC 01 — Project Foundation. This component contributes directly to satisfying PRD requirements (FR-05, FR-14) and maintaining system integrity and reproducibility.
+Implement Configure Temporal server and worker connection to advance capabilities within EPIC 01 — Project Foundation. This component contributes directly to satisfying PRD requirements (FR-05, FR-14) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-05, FR-14
 ---
 
 ## Technical Specification
-This task implements `Initialize Rust Axum API service skeleton` as part of `EPIC 01 — Project Foundation`.
+This task implements `Configure Temporal server and worker connection` as part of `EPIC 01 — Project Foundation`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 01 — Project Foundation (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Initialize Rust Axum API service skeleton` as part of `EPI
 ---
 
 ## Dependencies
-None
+SPECTER-004
 
 ---
 
@@ -51,13 +51,13 @@ Human/DevOps
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: None.
+- Verified design specifications and predecessor artifacts from: SPECTER-004.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Initialize Rust Axum API service skeleton`.
+- Verified, compilable implementation of `Configure Temporal server and worker connection`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Initialize Rust Axum API service skeleton`.
-3. Wire integration hooks with dependent tasks (None).
+2. Implement core components and interfaces for `Configure Temporal server and worker connection`.
+3. Wire integration hooks with dependent tasks (SPECTER-004).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Initialize Rust Axum API service skeleton` is complete and functionally verified.
+- [ ] Implementation of `Configure Temporal server and worker connection` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.

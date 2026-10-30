@@ -1,0 +1,85 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: specter-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-specter}
+      POSTGRES_USER: ${POSTGRES_USER:-specter_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-specter_secure_dev_pass_2026}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U specter_admin -d specter"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  temporal:
+    image: temporalio/auto-setup:1.24.2
+    container_name: specter-temporal
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - DB=postgres12
+      - DB_PORT=5432
+      - POSTGRES_USER=${POSTGRES_USER:-specter_admin}
+      - POSTGRES_PWD=${POSTGRES_PASSWORD:-specter_secure_dev_pass_2026}
+      - POSTGRES_SEEDS=postgres
+      - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development-sql.yaml
+    ports:
+      - "7233:7233"
+      - "8233:8233"
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: specter-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: specter-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPECTER_HOST: 0.0.0.0
+      SPECTER_PORT: 8080
+      SPECTER_ENV: development
+      DATABASE_URL: postgresql://${POSTGRES_USER:-specter_admin}:${POSTGRES_PASSWORD:-specter_secure_dev_pass_2026}@postgres:5432/${POSTGRES_DB:-specter}
+      TEMPORAL_HOST: temporal:7233
+      OLLAMA_HOST: http://ollama:11434
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: specter-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: http://backend:8080
+    ports:
+      - "3000:3000"
+
+volumes:
+  postgres_data:
+  ollama_models:

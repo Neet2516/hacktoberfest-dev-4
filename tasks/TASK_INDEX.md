@@ -11,12 +11,12 @@ Last updated: 2025-11-01
 
 | Status | Count |
 |--------|-------|
-| BACKLOG | 130 |
-| READY | 0 |
+| BACKLOG | 123 |
+| READY | 2 |
 | IN-PROGRESS | 0 |
 | REVIEW | 0 |
 | BLOCKED | 0 |
-| COMPLETED | 0 |
+| COMPLETED | 5 |
 | **TOTAL** | **130** |
 
 ---
@@ -25,12 +25,12 @@ Last updated: 2025-11-01
 
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
-| SPECTER-001 | Initialize Rust Axum API service skeleton | EPIC 01 | P0 | BACKLOG | Human/DevOps | None |
-| SPECTER-002 | Initialize Python agent runtime package | EPIC 01 | P0 | BACKLOG | Human/DevOps | None |
-| SPECTER-003 | Initialize Next.js + TypeScript frontend project | EPIC 01 | P0 | BACKLOG | Frontend Developer | None |
-| SPECTER-004 | Configure Docker Compose for development environment | EPIC 01 | P0 | BACKLOG | Human/DevOps | SPECTER-001, SPECTER-002, SPECTER-003 |
-| SPECTER-005 | Set up PostgreSQL with pgvector extension | EPIC 01 | P0 | BACKLOG | Human/DevOps | SPECTER-004 |
-| SPECTER-006 | Configure Temporal server and worker connection | EPIC 01 | P0 | BACKLOG | Human/DevOps | SPECTER-004 |
+| SPECTER-001 | Initialize Rust Axum API service skeleton | EPIC 01 | P0 | COMPLETED | Human/DevOps | None |
+| SPECTER-002 | Initialize Python agent runtime package | EPIC 01 | P0 | COMPLETED | Human/DevOps | None |
+| SPECTER-003 | Initialize Next.js + TypeScript frontend project | EPIC 01 | P0 | COMPLETED | Frontend Developer | None |
+| SPECTER-004 | Configure Docker Compose for development environment | EPIC 01 | P0 | COMPLETED | Human/DevOps | SPECTER-001, SPECTER-002, SPECTER-003 |
+| SPECTER-005 | Set up PostgreSQL with pgvector extension | EPIC 01 | P0 | COMPLETED | Human/DevOps | SPECTER-004 |
+| SPECTER-006 | Configure Temporal server and worker connection | EPIC 01 | P0 | READY | Human/DevOps | SPECTER-004 |
 | SPECTER-007 | Implement structured logging and tracing (OpenTelemetry) | EPIC 01 | P1 | BACKLOG | Human/DevOps | SPECTER-001, SPECTER-002 |
 | SPECTER-008 | Set up CI/CD pipeline (GitHub Actions) | EPIC 01 | P1 | BACKLOG | Human/DevOps | SPECTER-001, SPECTER-002, SPECTER-003 |
 | SPECTER-009 | Configure environment variable management and secrets handling | EPIC 01 | P0 | BACKLOG | Human/DevOps | SPECTER-004 |
@@ -42,7 +42,7 @@ Last updated: 2025-11-01
 
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
-| SPECTER-011 | Implement PostgreSQL connection pool in Rust | EPIC 02 | P0 | BACKLOG | Human/DevOps | SPECTER-001, SPECTER-005 |
+| SPECTER-011 | Implement PostgreSQL connection pool in Rust | EPIC 02 | P0 | READY | Human/DevOps | SPECTER-001, SPECTER-005 |
 | SPECTER-012 | Implement database schema migrations (SQLx/Flyway) | EPIC 02 | P0 | BACKLOG | Human/DevOps | SPECTER-011 |
 | SPECTER-013 | Create repository entity model and CRUD operations | EPIC 02 | P1 | BACKLOG | Human/DevOps | SPECTER-012 |
 | SPECTER-014 | Create task entity model and state machine | EPIC 02 | P1 | BACKLOG | Human/DevOps | SPECTER-012 |
