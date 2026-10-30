@@ -1,0 +1,27 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Build artifacts
+target/
+dist/
+build/
+node_modules/
+.next/
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Environment and Secrets
+*.env
+*.env.local
+*.env.*.local
+*.pem
+*.key

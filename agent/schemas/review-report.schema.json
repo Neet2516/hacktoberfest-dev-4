@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpecterReviewReport",
+  "description": "Structured audit report produced by the Adversarial Reviewer agent.",
+  "type": "object",
+  "required": [
+    "review_id",
+    "task_id",
+    "reviewer_agent",
+    "verdict",
+    "findings",
+    "regression_risk",
+    "security_risk",
+    "approved",
+    "timestamp"
+  ],
+  "properties": {
+    "review_id": {
+      "type": "string",
+      "pattern": "^rev_[a-zA-Z0-9_-]+$"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^SPECTER-[0-9]{3}$"
+    },
+    "reviewer_agent": {
+      "type": "string",
+      "const": "adversarial_reviewer"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "APPROVED",
+        "REQUEST_CHANGES",
+        "REJECTED_UNSAFE"
+      ]
+    },
+    "regression_risk": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ]
+    },
+    "security_risk": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ]
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "finding_id",
+          "severity",
+          "category",
+          "description",
+          "file_path"
+        ],
+        "properties": {
+          "finding_id": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "INFO",
+              "WARNING",
+              "ERROR",
+              "BLOCKER"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "REGRESSION",
+              "SECURITY",
+              "STYLE_CONSISTENCY",
+              "OVER_REFACTORING",
+              "SPEC_MISALIGNMENT",
+              "PERFORMANCE"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "file_path": {
+            "type": "string"
+          },
+          "line_number": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "suggested_remediation": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "corrections_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approved": {
+      "type": "boolean"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

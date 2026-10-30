@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpecterAgentMessage",
+  "description": "Standard structured message schema for inter-agent communication in SPECTER.",
+  "type": "object",
+  "required": [
+    "message_id",
+    "from",
+    "to",
+    "task_id",
+    "message_type",
+    "payload",
+    "timestamp",
+    "execution_status"
+  ],
+  "properties": {
+    "message_id": {
+      "type": "string",
+      "pattern": "^msg_[a-zA-Z0-9_-]+$"
+    },
+    "from": {
+      "type": "string",
+      "enum": [
+        "resurrection_coordinator",
+        "repository_archaeologist",
+        "issue_investigator",
+        "ghost_repairer",
+        "adversarial_reviewer",
+        "test_engineer",
+        "human_supervisor"
+      ]
+    },
+    "to": {
+      "type": "string",
+      "enum": [
+        "resurrection_coordinator",
+        "repository_archaeologist",
+        "issue_investigator",
+        "ghost_repairer",
+        "adversarial_reviewer",
+        "test_engineer",
+        "human_supervisor",
+        "broadcast"
+      ]
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^(SPECTER-[0-9]{3}|task_[a-zA-Z0-9_-]+)$"
+    },
+    "message_type": {
+      "type": "string",
+      "enum": [
+        "delegation",
+        "acknowledgment",
+        "repository_context",
+        "investigation_report",
+        "repair_specification",
+        "patch_proposal",
+        "review_verdict",
+        "test_plan",
+        "verification_report",
+        "approval_request",
+        "approval_response",
+        "escalation",
+        "heartbeat",
+        "error"
+      ]
+    },
+    "payload": {
+      "type": "object"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "execution_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_progress",
+        "ready",
+        "completed",
+        "rejected",
+        "failed",
+        "blocked"
+      ]
+    },
+    "schema_version": {
+      "type": "string",
+      "default": "1.0.0"
+    }
+  },
+  "additionalProperties": false
+}

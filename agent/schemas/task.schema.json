@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpecterTask",
+  "description": "Schema representing an executable SPECTER unit of work.",
+  "type": "object",
+  "required": [
+    "task_id",
+    "title",
+    "epic",
+    "priority",
+    "status",
+    "objective",
+    "prd_references",
+    "responsible_owner",
+    "acceptance_criteria"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "pattern": "^SPECTER-[0-9]{3}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 200
+    },
+    "epic": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "BACKLOG",
+        "READY",
+        "IN-PROGRESS",
+        "REVIEW",
+        "COMPLETED",
+        "BLOCKED"
+      ]
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 10
+    },
+    "prd_references": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^FR-[0-9]{2}$"
+      }
+    },
+    "technical_specification": {
+      "type": "string"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "responsible_owner": {
+      "type": "string"
+    },
+    "input_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expected_output": {
+      "type": "string"
+    },
+    "implementation_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "files_affected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "security_considerations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "testing_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "definition_of_done": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
