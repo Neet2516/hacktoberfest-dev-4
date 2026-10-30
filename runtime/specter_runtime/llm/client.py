@@ -1,3 +1,4 @@
+import os
 import json
 import urllib.request
 import urllib.error
@@ -10,12 +11,15 @@ class OllamaClient:
         self,
         base_url: str = "http://localhost:11434",
         model: str = "gemma2:9b",
-        mock_mode: bool = False,
-        timeout_seconds: int = 60,
+        mock_mode: Optional[bool] = None,
+        timeout_seconds: float = 2.0,
     ):
         self.base_url = base_url.rstrip("/")
         self.model = model
-        self.mock_mode = mock_mode
+        if mock_mode is None:
+            self.mock_mode = os.environ.get("SPECTER_ENV") == "test" or os.environ.get("MOCK_LLM") == "1"
+        else:
+            self.mock_mode = mock_mode
         self.timeout_seconds = timeout_seconds
 
     def generate(
