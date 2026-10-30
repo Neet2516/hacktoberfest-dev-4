@@ -1,4 +1,4 @@
-version: "3.8"
+name: hacktoberfest-dev-4
 
 services:
   postgres:
@@ -66,6 +66,21 @@ services:
     ports:
       - "8080:8080"
 
+  runtime:
+    build:
+      context: ./runtime
+      dockerfile: Dockerfile
+    container_name: specter-runtime
+    restart: unless-stopped
+    depends_on:
+      temporal:
+        condition: service_started
+      ollama:
+        condition: service_started
+    environment:
+      TEMPORAL_HOST: temporal:7233
+      OLLAMA_HOST: http://ollama:11434
+
   frontend:
     build:
       context: ./frontend
@@ -83,4 +98,3 @@ services:
 volumes:
   postgres_data:
   ollama_models:
-

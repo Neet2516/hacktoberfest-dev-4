@@ -11,12 +11,12 @@ Last updated: 2025-11-01
 
 | Status | Count |
 |--------|-------|
-| BACKLOG | 117 |
+| BACKLOG | 115 |
 | READY | 2 |
 | IN-PROGRESS | 0 |
 | REVIEW | 0 |
 | BLOCKED | 0 |
-| COMPLETED | 11 |
+| COMPLETED | 13 |
 | **TOTAL** | **130** |
 
 ---
@@ -59,11 +59,11 @@ Last updated: 2025-11-01
 
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
-| SPECTER-021 | Implement GitHub repository URL validation endpoint | EPIC 03 | P1 | READY | Human/DevOps | SPECTER-016, SPECTER-017 |
+| SPECTER-021 | Implement GitHub repository URL validation endpoint | EPIC 03 | P1 | COMPLETED | Human/DevOps | SPECTER-016, SPECTER-017 |
 | SPECTER-022 | Implement repository metadata extraction (stars, language, last commit) | EPIC 03 | P1 | BACKLOG | Human/DevOps | SPECTER-021, SPECTER-035 |
-| SPECTER-023 | Implement repository clone into isolated workspace directory | EPIC 03 | P1 | BACKLOG | Human/DevOps | SPECTER-021, SPECTER-024 |
-| SPECTER-024 | Implement workspace lifecycle management (create/destroy) | EPIC 03 | P1 | READY | Human/DevOps | SPECTER-013 |
-| SPECTER-025 | Implement file system isolation (no host path exposure) | EPIC 03 | P0 | BACKLOG | Security Engineer | SPECTER-024 |
+| SPECTER-023 | Implement repository clone into isolated workspace directory | EPIC 03 | P1 | READY | Human/DevOps | SPECTER-021, SPECTER-024 |
+| SPECTER-024 | Implement workspace lifecycle management (create/destroy) | EPIC 03 | P1 | COMPLETED | Human/DevOps | SPECTER-013 |
+| SPECTER-025 | Implement file system isolation (no host path exposure) | EPIC 03 | P0 | READY | Security Engineer | SPECTER-024 |
 | SPECTER-026 | Implement Git history extraction (commits, authors, dates) | EPIC 03 | P2 | BACKLOG | Human/DevOps | SPECTER-023 |
 | SPECTER-027 | Write repository ingestion integration tests | EPIC 03 | P1 | BACKLOG | Human/DevOps | SPECTER-023, SPECTER-024, SPECTER-025, SPECTER-026 |
 

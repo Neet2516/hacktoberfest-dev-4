@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-024
+# SPECTER Task: SPECTER-023
 
 ---
 
 ## Task ID
-`SPECTER-024`
+`SPECTER-023`
 
 ---
 
 ## Task Title
-Implement workspace lifecycle management (create/destroy)
+Implement repository clone into isolated workspace directory
 
 ---
 
@@ -23,7 +23,7 @@ P1
 ---
 
 ## Objective
-Implement Implement workspace lifecycle management (create/destroy) to advance capabilities within EPIC 03 — Repository Ingestion. This component contributes directly to satisfying PRD requirements (FR-01, FR-02, FR-03) and maintaining system integrity and reproducibility.
+Implement Implement repository clone into isolated workspace directory to advance capabilities within EPIC 03 — Repository Ingestion. This component contributes directly to satisfying PRD requirements (FR-01, FR-02, FR-03) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-01, FR-02, FR-03
 ---
 
 ## Technical Specification
-This task implements `Implement workspace lifecycle management (create/destroy)` as part of `EPIC 03 — Repository Ingestion`.
+This task implements `Implement repository clone into isolated workspace directory` as part of `EPIC 03 — Repository Ingestion`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 03 — Repository Ingestion (Human/DevOps).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Implement workspace lifecycle management (create/destroy)`
 ---
 
 ## Dependencies
-SPECTER-013
+SPECTER-021, SPECTER-024
 
 ---
 
@@ -51,13 +51,13 @@ Human/DevOps
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-013.
+- Verified design specifications and predecessor artifacts from: SPECTER-021, SPECTER-024.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement workspace lifecycle management (create/destroy)`.
+- Verified, compilable implementation of `Implement repository clone into isolated workspace directory`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement workspace lifecycle management (create/destroy)`.
-3. Wire integration hooks with dependent tasks (SPECTER-013).
+2. Implement core components and interfaces for `Implement repository clone into isolated workspace directory`.
+3. Wire integration hooks with dependent tasks (SPECTER-021, SPECTER-024).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -82,6 +82,8 @@ Human/DevOps
 - Strict validation of all inputs before processing.
 - No secrets or credentials to be written to disk in plain text or emitted to logs.
 - Adherence to SPECTER zero-trust boundary defined in `docs/THREAT_MODEL.md`.
+- Execute only inside rootless containers with network disabled (`--network none`).
+- Enforce SSRF prevention and URL sanitization. Block localhost and private IP ranges.
 
 ---
 
@@ -93,7 +95,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement workspace lifecycle management (create/destroy)` is complete and functionally verified.
+- [ ] Implementation of `Implement repository clone into isolated workspace directory` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.

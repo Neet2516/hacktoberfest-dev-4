@@ -30,3 +30,4 @@ fn test_invalid_bypass_transitions() {
     // Direct Backlog to Review is prohibited
     assert!(!TaskStatus::Backlog.can_transition_to(&TaskStatus::Review));
 }
+
