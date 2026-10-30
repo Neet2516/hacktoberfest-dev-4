@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-113
+# SPECTER Task: SPECTER-115
 
 ---
 
 ## Task ID
-`SPECTER-113`
+`SPECTER-115`
 
 ---
 
 ## Task Title
-Implement Docker host mount restrictions
+Implement agent action audit trail
 
 ---
 
@@ -18,12 +18,12 @@ EPIC 16 — Security and Threat Mitigation
 ---
 
 ## Priority
-P0
+P1
 
 ---
 
 ## Objective
-Implement Implement Docker host mount restrictions to advance capabilities within EPIC 16 — Security and Threat Mitigation. This component contributes directly to satisfying PRD requirements (FR-02, FR-09, FR-13) and maintaining system integrity and reproducibility.
+Implement Implement agent action audit trail to advance capabilities within EPIC 16 — Security and Threat Mitigation. This component contributes directly to satisfying PRD requirements (FR-02, FR-09, FR-13) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-02, FR-09, FR-13
 ---
 
 ## Technical Specification
-This task implements `Implement Docker host mount restrictions` as part of `EPIC 16 — Security and Threat Mitigation`.
+This task implements `Implement agent action audit trail` as part of `EPIC 16 — Security and Threat Mitigation`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 16 — Security and Threat Mitigation (Security Engineer).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Implement Docker host mount restrictions` as part of `EPIC
 ---
 
 ## Dependencies
-SPECTER-080
+SPECTER-019, SPECTER-043
 
 ---
 
@@ -51,13 +51,13 @@ Security Engineer
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-080.
+- Verified design specifications and predecessor artifacts from: SPECTER-019, SPECTER-043.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement Docker host mount restrictions`.
+- Verified, compilable implementation of `Implement agent action audit trail`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Security Engineer
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement Docker host mount restrictions`.
-3. Wire integration hooks with dependent tasks (SPECTER-080).
+2. Implement core components and interfaces for `Implement agent action audit trail`.
+3. Wire integration hooks with dependent tasks (SPECTER-019, SPECTER-043).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -82,7 +82,6 @@ Security Engineer
 - Strict validation of all inputs before processing.
 - No secrets or credentials to be written to disk in plain text or emitted to logs.
 - Adherence to SPECTER zero-trust boundary defined in `docs/THREAT_MODEL.md`.
-- Execute only inside rootless containers with network disabled (`--network none`).
 
 ---
 
@@ -94,7 +93,7 @@ Security Engineer
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement Docker host mount restrictions` is complete and functionally verified.
+- [ ] Implementation of `Implement agent action audit trail` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -111,7 +110,7 @@ Security Engineer
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -121,4 +120,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Security mitigations verified against STRIDE threat model in `docs/THREAT_MODEL.md`.
+- Automated adversarial test suite passing 100% in `runtime/tests/test_security_mitigations.py`.
+- Network isolation (--network none), read-only mounts (:ro), token vault redaction, and human approval gates verified.

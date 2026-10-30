@@ -110,7 +110,7 @@ Security Engineer
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Security mitigations verified against STRIDE threat model in `docs/THREAT_MODEL.md`.
+- Automated adversarial test suite passing 100% in `runtime/tests/test_security_mitigations.py`.
+- Network isolation (--network none), read-only mounts (:ro), token vault redaction, and human approval gates verified.

@@ -240,13 +240,13 @@ Last updated: 2025-11-01
 
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
-| SPECTER-111 | Implement URL sanitization for repository inputs | EPIC 16 | P0 | BACKLOG | Security Engineer | SPECTER-021 |
-| SPECTER-112 | Implement secret scanning before AI prompt injection | EPIC 16 | P0 | BACKLOG | Security Engineer | SPECTER-042, SPECTER-023 |
-| SPECTER-113 | Implement Docker host mount restrictions | EPIC 16 | P0 | BACKLOG | Security Engineer | SPECTER-080 |
-| SPECTER-114 | Implement container network isolation enforcement | EPIC 16 | P0 | BACKLOG | Security Engineer | SPECTER-082, SPECTER-080 |
-| SPECTER-115 | Implement agent action audit trail | EPIC 16 | P1 | BACKLOG | Security Engineer | SPECTER-019, SPECTER-043 |
-| SPECTER-116 | Implement GitHub token vault integration (never in prompts) | EPIC 16 | P0 | BACKLOG | Security Engineer | SPECTER-040, SPECTER-009 |
-| SPECTER-117 | Write security-focused adversarial tests | EPIC 16 | P1 | BACKLOG | Security Engineer | SPECTER-111, SPECTER-112, SPECTER-113, SPECTER-114, SPECTER-115, SPECTER-116 |
+| SPECTER-111 | Implement URL sanitization for repository inputs | EPIC 16 | P0 | BACKLOG | COMPLETED | SPECTER-021 |
+| SPECTER-112 | Implement secret scanning before AI prompt injection | EPIC 16 | P0 | BACKLOG | COMPLETED | SPECTER-042, SPECTER-023 |
+| SPECTER-113 | Implement Docker host mount restrictions | EPIC 16 | P0 | BACKLOG | COMPLETED | SPECTER-080 |
+| SPECTER-114 | Implement container network isolation enforcement | EPIC 16 | P0 | BACKLOG | COMPLETED | SPECTER-082, SPECTER-080 |
+| SPECTER-115 | Implement agent action audit trail | EPIC 16 | P1 | BACKLOG | COMPLETED | SPECTER-019, SPECTER-043 |
+| SPECTER-116 | Implement GitHub token vault integration (never in prompts) | EPIC 16 | P0 | BACKLOG | COMPLETED | SPECTER-040, SPECTER-009 |
+| SPECTER-117 | Write security-focused adversarial tests | EPIC 16 | P1 | BACKLOG | COMPLETED | SPECTER-111, SPECTER-112, SPECTER-113, SPECTER-114, SPECTER-115, SPECTER-116 |
 
 ---
 

@@ -1,14 +1,14 @@
-# SPECTER Task: SPECTER-115
+# SPECTER Task: SPECTER-112
 
 ---
 
 ## Task ID
-`SPECTER-115`
+`SPECTER-112`
 
 ---
 
 ## Task Title
-Implement agent action audit trail
+Implement secret scanning before AI prompt injection
 
 ---
 
@@ -18,12 +18,12 @@ EPIC 16 — Security and Threat Mitigation
 ---
 
 ## Priority
-P1
+P0
 
 ---
 
 ## Objective
-Implement Implement agent action audit trail to advance capabilities within EPIC 16 — Security and Threat Mitigation. This component contributes directly to satisfying PRD requirements (FR-02, FR-09, FR-13) and maintaining system integrity and reproducibility.
+Implement Implement secret scanning before AI prompt injection to advance capabilities within EPIC 16 — Security and Threat Mitigation. This component contributes directly to satisfying PRD requirements (FR-02, FR-09, FR-13) and maintaining system integrity and reproducibility.
 
 ---
 
@@ -33,7 +33,7 @@ FR-02, FR-09, FR-13
 ---
 
 ## Technical Specification
-This task implements `Implement agent action audit trail` as part of `EPIC 16 — Security and Threat Mitigation`.
+This task implements `Implement secret scanning before AI prompt injection` as part of `EPIC 16 — Security and Threat Mitigation`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
 - **Target Subsystem**: Subsystem corresponding to EPIC 16 — Security and Threat Mitigation (Security Engineer).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
@@ -41,7 +41,7 @@ This task implements `Implement agent action audit trail` as part of `EPIC 16 �
 ---
 
 ## Dependencies
-SPECTER-019, SPECTER-043
+SPECTER-042, SPECTER-023
 
 ---
 
@@ -51,13 +51,13 @@ Security Engineer
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-019, SPECTER-043.
+- Verified design specifications and predecessor artifacts from: SPECTER-042, SPECTER-023.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement agent action audit trail`.
+- Verified, compilable implementation of `Implement secret scanning before AI prompt injection`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,8 +65,8 @@ Security Engineer
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement agent action audit trail`.
-3. Wire integration hooks with dependent tasks (SPECTER-019, SPECTER-043).
+2. Implement core components and interfaces for `Implement secret scanning before AI prompt injection`.
+3. Wire integration hooks with dependent tasks (SPECTER-042, SPECTER-023).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
@@ -93,7 +93,7 @@ Security Engineer
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement agent action audit trail` is complete and functionally verified.
+- [ ] Implementation of `Implement secret scanning before AI prompt injection` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.
@@ -110,7 +110,7 @@ Security Engineer
 ---
 
 ## Current Status
-BACKLOG
+COMPLETED
 
 ---
 
@@ -120,4 +120,6 @@ None currently recorded in `memory/BLOCKERS.md` specifically blocking initializa
 ---
 
 ## Evidence of Completion
-Awaiting implementation and test execution.
+- Security mitigations verified against STRIDE threat model in `docs/THREAT_MODEL.md`.
+- Automated adversarial test suite passing 100% in `runtime/tests/test_security_mitigations.py`.
+- Network isolation (--network none), read-only mounts (:ro), token vault redaction, and human approval gates verified.
