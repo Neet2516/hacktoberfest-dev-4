@@ -1,10 +1,20 @@
 use std::fs;
 use std::io;
 use std::path::{Path, PathBuf};
+use serde::{Deserialize, Serialize};
 use tokio::process::Command;
 use uuid::Uuid;
 
 use crate::routes::ingestion::parse_and_validate_github_url;
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct GitCommitInfo {
+    pub sha: String,
+    pub author_name: String,
+    pub author_email: String,
+    pub date: String,
+    pub message: String,
+}
 
 #[derive(Debug, Clone)]
 pub struct WorkspaceManager {
@@ -91,7 +101,6 @@ impl WorkspaceManager {
             )));
         }
 
-        // Extract baseline commit SHA
         let sha_output = Command::new("git")
             .current_dir(&ws_path)
             .arg("rev-parse")
@@ -112,6 +121,52 @@ impl WorkspaceManager {
         );
 
         Ok((ws_id, ws_path, baseline_commit))
+    }
+
+    pub async fn extract_git_history(
+        &self,
+        workspace_path: &Path,
+        max_commits: usize,
+    ) -> Result<Vec<GitCommitInfo>, WorkspaceError> {
+        if !workspace_path.starts_with(&self.base_dir) {
+            return Err(WorkspaceError::Security(
+                "Attempted to read git history outside designated workspace root".to_string(),
+            ));
+        }
+
+        let output = Command::new("git")
+            .current_dir(workspace_path)
+            .arg("log")
+            .arg(format!("-n{}", max_commits))
+            .arg("--pretty=format:%H|%an|%ae|%aI|%s")
+            .output()
+            .await?;
+
+        if !output.status.success() {
+            let stderr = String::from_utf8_lossy(&output.stderr);
+            return Err(WorkspaceError::GitFailed(format!(
+                "git log failed: {}",
+                stderr.trim()
+            )));
+        }
+
+        let stdout = String::from_utf8_lossy(&output.stdout);
+        let mut commits = Vec::new();
+
+        for line in stdout.lines() {
+            let parts: Vec<&str> = line.split('|').collect();
+            if parts.len() >= 5 {
+                commits.push(GitCommitInfo {
+                    sha: parts[0].to_string(),
+                    author_name: parts[1].to_string(),
+                    author_email: parts[2].to_string(),
+                    date: parts[3].to_string(),
+                    message: parts[4..].join("|"),
+                });
+            }
+        }
+
+        Ok(commits)
     }
 
     pub fn destroy_workspace(&self, workspace_path: &Path) -> io::Result<bool> {
@@ -136,9 +191,6 @@ impl WorkspaceManager {
     }
 }
 
-/// Virtual Path Mapper (SPECTER-025)
-/// Maps physical host paths to abstract virtual URIs (e.g. `workspace://ws_id/src/lib.rs`)
-/// to guarantee zero host path leakage in logs, agent prompts, and public responses.
 #[derive(Debug, Clone)]
 pub struct VirtualPathMapper {
     workspace_id: Uuid,

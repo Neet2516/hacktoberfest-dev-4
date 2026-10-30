@@ -1,63 +1,63 @@
-# SPECTER Task: SPECTER-026
+# SPECTER Task: SPECTER-029
 
 ---
 
 ## Task ID
-`SPECTER-026`
+`SPECTER-029`
 
 ---
 
 ## Task Title
-Implement Git history extraction (commits, authors, dates)
+Implement README and configuration file analyzer
 
 ---
 
 ## Epic
-EPIC 03 — Repository Ingestion
+EPIC 04 — Repository Archaeology
 
 ---
 
 ## Priority
-P2
+P1
 
 ---
 
 ## Objective
-Implement Implement Git history extraction (commits, authors, dates) to advance capabilities within EPIC 03 — Repository Ingestion. This component contributes directly to satisfying PRD requirements (FR-01, FR-02, FR-03) and maintaining system integrity and reproducibility.
+Implement Implement README and configuration file analyzer to advance capabilities within EPIC 04 — Repository Archaeology. This component contributes directly to satisfying PRD requirements (FR-03, FR-10) and maintaining system integrity and reproducibility.
 
 ---
 
 ## PRD Requirement Reference
-FR-01, FR-02, FR-03
+FR-03, FR-10
 
 ---
 
 ## Technical Specification
-This task implements `Implement Git history extraction (commits, authors, dates)` as part of `EPIC 03 — Repository Ingestion`.
+This task implements `Implement README and configuration file analyzer` as part of `EPIC 04 — Repository Archaeology`.
 - **Architectural Scope**: Aligned with technical architecture specification in `docs/TECHNICAL_ARCHITECTURE.md`.
-- **Target Subsystem**: Subsystem corresponding to EPIC 03 — Repository Ingestion (Human/DevOps).
+- **Target Subsystem**: Subsystem corresponding to EPIC 04 — Repository Archaeology (Repository Archaeologist).
 - **Design Constraints**: Adheres to strict modularity, memory safety, and least-privilege contracts defined in `agent/TOOL_CONTRACTS.md`.
 
 ---
 
 ## Dependencies
-SPECTER-023
+SPECTER-028
 
 ---
 
 ## Responsible Agent / Human Owner
-Human/DevOps
+Repository Archaeologist
 
 ---
 
 ## Input Requirements
-- Verified design specifications and predecessor artifacts from: SPECTER-023.
+- Verified design specifications and predecessor artifacts from: SPECTER-028.
 - Relevant configuration files and schemas from `agent/schemas/` or environment settings.
 
 ---
 
 ## Expected Output
-- Verified, compilable implementation of `Implement Git history extraction (commits, authors, dates)`.
+- Verified, compilable implementation of `Implement README and configuration file analyzer`.
 - Automated tests covering functional and failure paths.
 - Execution traces or logs proving correct behavior.
 
@@ -65,15 +65,15 @@ Human/DevOps
 
 ## Implementation Steps
 1. Review related architectural requirements in `docs/TECHNICAL_ARCHITECTURE.md`.
-2. Implement core components and interfaces for `Implement Git history extraction (commits, authors, dates)`.
-3. Wire integration hooks with dependent tasks (SPECTER-023).
+2. Implement core components and interfaces for `Implement README and configuration file analyzer`.
+3. Wire integration hooks with dependent tasks (SPECTER-028).
 4. Implement comprehensive unit tests verifying normal and error edge cases.
 5. Validate compliance with security and error-handling requirements.
 
 ---
 
 ## Files Affected
-- Modules associated with EPIC 03 — Repository Ingestion in backend, agent runtime, or frontend.
+- Modules associated with EPIC 04 — Repository Archaeology in backend, agent runtime, or frontend.
 - Corresponding test suites and documentation references.
 
 ---
@@ -93,7 +93,7 @@ Human/DevOps
 ---
 
 ## Acceptance Criteria
-- [ ] Implementation of `Implement Git history extraction (commits, authors, dates)` is complete and functionally verified.
+- [ ] Implementation of `Implement README and configuration file analyzer` is complete and functionally verified.
 - [ ] Code adheres strictly to formatting, typing, and linting guidelines.
 - [ ] Unit and integration test coverage meets or exceeds 85%.
 - [ ] No regression or breaking changes introduced to dependent modules.

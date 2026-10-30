@@ -64,7 +64,7 @@ Last updated: 2025-11-01
 | SPECTER-023 | Implement repository clone into isolated workspace directory | EPIC 03 | P1 | COMPLETED | Human/DevOps | SPECTER-021, SPECTER-024 |
 | SPECTER-024 | Implement workspace lifecycle management (create/destroy) | EPIC 03 | P1 | COMPLETED | Human/DevOps | SPECTER-013 |
 | SPECTER-025 | Implement file system isolation (no host path exposure) | EPIC 03 | P0 | COMPLETED | Security Engineer | SPECTER-024 |
-| SPECTER-026 | Implement Git history extraction (commits, authors, dates) | EPIC 03 | P2 | READY | Human/DevOps | SPECTER-023 |
+| SPECTER-026 | Implement Git history extraction (commits, authors, dates) | EPIC 03 | P2 | COMPLETED | Human/DevOps | SPECTER-023 |
 | SPECTER-027 | Write repository ingestion integration tests | EPIC 03 | P1 | BACKLOG | Human/DevOps | SPECTER-023, SPECTER-024, SPECTER-025, SPECTER-026 |
 
 ---
@@ -73,10 +73,10 @@ Last updated: 2025-11-01
 
 | Task ID | Title | Epic | Priority | Status | Assigned Agent | Dependencies |
 |---------|-------|------|----------|--------|----------------|--------------|
-| SPECTER-028 | Implement Tree-sitter code parser integration | EPIC 04 | P1 | READY | Repository Archaeologist | SPECTER-002, SPECTER-023 |
-| SPECTER-029 | Implement README and configuration file analyzer | EPIC 04 | P1 | BACKLOG | Repository Archaeologist | SPECTER-028 |
+| SPECTER-028 | Implement Tree-sitter code parser integration | EPIC 04 | P1 | COMPLETED | Repository Archaeologist | SPECTER-002, SPECTER-023 |
+| SPECTER-029 | Implement README and configuration file analyzer | EPIC 04 | P1 | READY | Repository Archaeologist | SPECTER-028 |
 | SPECTER-030 | Implement architectural pattern detector | EPIC 04 | P2 | BACKLOG | Repository Archaeologist | SPECTER-028, SPECTER-042 |
-| SPECTER-031 | Implement dependency inventory extractor | EPIC 04 | P1 | BACKLOG | Repository Archaeologist | SPECTER-028 |
+| SPECTER-031 | Implement dependency inventory extractor | EPIC 04 | P1 | READY | Repository Archaeologist | SPECTER-028 |
 | SPECTER-032 | Implement Repository Context Report generator | EPIC 04 | P1 | BACKLOG | Repository Archaeologist | SPECTER-029, SPECTER-030, SPECTER-031 |
 | SPECTER-033 | Implement Repository Archaeologist agent (Python, Ollama/Gemma) | EPIC 04 | P1 | BACKLOG | Repository Archaeologist | SPECTER-042, SPECTER-032 |
 | SPECTER-034 | Write Repository Archaeologist tests | EPIC 04 | P1 | BACKLOG | Test Engineer | SPECTER-033 |

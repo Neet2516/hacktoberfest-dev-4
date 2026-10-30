@@ -110,7 +110,7 @@ Repository Archaeologist
 ---
 
 ## Current Status
-BACKLOG
+READY
 
 ---
 
