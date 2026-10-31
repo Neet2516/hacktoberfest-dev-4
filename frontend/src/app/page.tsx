@@ -142,39 +142,64 @@ export default function RetroSpecterDashboard() {
 
   // Live Repository Analysis using Backend & GitHub API
   const handleAnalyzeRepo = async () => {
+    const trimmed = repoUrl.trim();
+    if (!trimmed) return;
+
     setIsAnalyzing(true);
+
+    // 1. Instant regex extraction so UI immediately responds to the user's input
+    let targetOwner = "Neet2516";
+    let targetName = "Devflow";
+
+    const match = trimmed.match(/github\.com\/([a-zA-Z0-9_.-]+)\/([a-zA-Z0-9_.-]+)/);
+    if (match) {
+      targetOwner = match[1];
+      targetName = match[2].replace(/\.git$/, "");
+      setRepoMetadata((prev) => ({
+        ...prev,
+        owner: targetOwner,
+        name: targetName,
+        language: "Fetching...",
+      }));
+    }
+
     try {
-      // 1. Validate with real backend
-      const res = await fetch(`${API_BASE}/api/v1/repos/validate`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: repoUrl }),
-      });
-      const data = await res.json();
-      if (data.valid && data.owner && data.name) {
-        setBackendOnline(true);
-        // 2. Query GitHub live public metadata
-        try {
-          const ghRes = await fetch(`https://api.github.com/repos/${data.owner}/${data.name}`);
-          if (ghRes.ok) {
-            const ghData = await ghRes.json();
-            setRepoMetadata({
-              owner: ghData.owner?.login || data.owner,
-              name: ghData.name || data.name,
-              stars: ghData.stargazers_count ?? 1,
-              language: ghData.language || "Rust / Python",
-              openIssues: ghData.open_issues_count ?? 0,
-              lastCommit: "HEAD",
-              branch: ghData.default_branch || "main",
-              description: ghData.description || "SPECTER Analyzed Repository",
-            });
-          }
-        } catch (e) {
-          console.warn("GitHub rate limit or offline; using validated repo info", e);
+      // 2. Fetch live data directly from GitHub public API
+      try {
+        const ghRes = await fetch(`https://api.github.com/repos/${targetOwner}/${targetName}`);
+        if (ghRes.ok) {
+          const ghData = await ghRes.json();
+          setRepoMetadata({
+            owner: ghData.owner?.login || targetOwner,
+            name: ghData.name || targetName,
+            stars: ghData.stargazers_count ?? 0,
+            language: ghData.language || "TypeScript / Python",
+            openIssues: ghData.open_issues_count ?? 0,
+            lastCommit: ghData.default_branch || "main",
+            branch: ghData.default_branch || "main",
+            description: ghData.description || `SPECTER Ingested ${targetOwner}/${targetName}`,
+          });
         }
+      } catch (ghErr) {
+        console.warn("Direct GitHub API fetch issue:", ghErr);
       }
-    } catch (err) {
-      console.warn("Backend validate endpoint unreachable; using direct parser", err);
+
+      // 3. Validate with real Rust backend
+      try {
+        const res = await fetch(`${API_BASE}/api/v1/repos/validate`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url: trimmed }),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.valid) {
+            setBackendOnline(true);
+          }
+        }
+      } catch (err) {
+        console.warn("Backend validate endpoint unreachable:", err);
+      }
     } finally {
       setIsAnalyzing(false);
       setPipelineState("ready");
@@ -441,6 +466,9 @@ export default function RetroSpecterDashboard() {
                   type="text"
                   value={repoUrl}
                   onChange={(e) => setRepoUrl(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") handleAnalyzeRepo();
+                  }}
                   className="retro-well flex-1 px-3 py-2 text-sm font-mono focus:outline-none focus:ring-1 focus:ring-[#000080]"
                   placeholder="https://github.com/owner/repository"
                 />
@@ -448,7 +476,7 @@ export default function RetroSpecterDashboard() {
                   type="button"
                   onClick={handleAnalyzeRepo}
                   disabled={isAnalyzing}
-                  className="retro-btn retro-btn-yellow font-extrabold uppercase whitespace-nowrap text-xs"
+                  className="retro-btn retro-btn-yellow font-extrabold uppercase whitespace-nowrap text-xs cursor-pointer active:translate-x-0.5 active:translate-y-0.5"
                 >
                   {isAnalyzing ? "⏳ ANALYZING..." : "⚡ ANALYZE REPO"}
                 </button>
