@@ -128,16 +128,16 @@ flowchart TD
         A5["5. Tester Agent - Docker Sandbox"]
     end
 
-    UI -->|Telemetry & Control| API
-    VaultUI -->|Encrypted PAT Delivery| SecVault
-    API -->|State Machine| Workflow
+    UI -->|"Telemetry & Control"| API
+    VaultUI -->|"Encrypted PAT Delivery"| SecVault
+    API -->|"State Machine"| Workflow
     Workflow --> Temporal
     Temporal --> Runtime
-    Runtime -->|Embeddings & Memory| PG
-    Runtime -->|Local Inference - Zero Token Exposure| Ollama
-    A5 -->|Isolated Network None| Sandbox["Ephemeral Docker Sandbox"]
-    HumanGate -->|Cryptographic Approval| API
-    API -->|Authenticated PR Dispatch| GitHub["GitHub API - Remote PR"]
+    Runtime -->|"Embeddings & Memory"| PG
+    Runtime -->|"Local Inference - Zero Token Exposure"| Ollama
+    A5 -->|"Isolated Network None"| Sandbox["Ephemeral Docker Sandbox"]
+    HumanGate -->|"Cryptographic Approval"| API
+    API -->|"Authenticated PR Dispatch"| GitHub["GitHub API - Remote PR"]
 ```
 
 ---
