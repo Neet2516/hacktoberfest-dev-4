@@ -1,5 +1,5 @@
 services:
-  # 1. SPECTER Retro OS Frontend (Next.js 15)
+  # SPECTER Retro OS Desktop Web Application (Next.js 15)
   - type: web
     name: specter-web
     runtime: node
@@ -9,25 +9,4 @@ services:
     startCommand: cd frontend && npm start
     envVars:
       - key: NODE_ENV
-        value: production
-      - key: NEXT_PUBLIC_API_URL
-        fromService:
-          type: web
-          name: specter-backend
-          property: host
-
-  # 2. SPECTER Core Orchestrator (Rust / Axum)
-  - type: web
-    name: specter-backend
-    runtime: docker
-    dockerfilePath: ./backend/Dockerfile
-    dockerContext: ./backend
-    plan: free
-    region: oregon
-    envVars:
-      - key: SPECTER_HOST
-        value: 0.0.0.0
-      - key: SPECTER_PORT
-        value: 8080
-      - key: SPECTER_ENV
         value: production
