@@ -1,10 +1,10 @@
 # Multi-stage Dockerfile for SPECTER Rust Axum API Service
-FROM rust:1.80-slim AS builder
+FROM rust:latest AS builder
 
 WORKDIR /usr/src/specter-backend
 
 # Install build dependencies
-RUN apt-get update && apt-get install -y pkg-config libssl-dev && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends pkg-config libssl-dev && rm -rf /var/lib/apt/lists/*
 
 COPY Cargo.toml Cargo.lock ./
 COPY migrations ./migrations

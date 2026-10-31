@@ -168,10 +168,12 @@ You can inspect the genuine agent development transcript documenting the multi-a
 
 ## 🏆 Prize Categories
 
-- **Best Use of Temporal:**
-  SPECTER uses Temporal for durable workflow orchestration of the 5-step resurrection pipeline, state rehydration across worker restarts, and failure-recovery loops.
-- **Best Use of Gemma:**
+- **Best Use of Render ($200 USD Featured Prize):**
+  SPECTER's production web dashboard and Rust Axum orchestrator API are deployed on Render using a declarative, multi-service `render.yaml` blueprint with automated monorepo build orchestration.
+- **Best Use of Gemma ($200 USD Featured Prize):**
   Local inference powered by Google's open-weight Gemma 2 model via Ollama for historical idiom mining, root-cause deduction, and adversarial patch auditing without cloud token exposure.
+- **Best Use of Temporal ($100 USD Partner Prize):**
+  SPECTER uses Temporal for durable workflow orchestration of the 5-step resurrection pipeline, state rehydration across worker restarts, and failure-recovery loops.
 
 ---
 
