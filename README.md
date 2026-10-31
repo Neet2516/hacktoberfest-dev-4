@@ -109,7 +109,7 @@ flowchart TD
     end
 
     subgraph Backend["Core Orchestrator (Rust / Axum)"]
-        API["REST API Router (:8080)"]
+        API["REST API Router :8080"]
         SecVault["In-Memory Vault & Masking Engine"]
         Workflow["Temporal Workflow Client"]
     end
@@ -117,7 +117,7 @@ flowchart TD
     subgraph Storage["Persistence & Memory"]
         PG[("PostgreSQL 16 + pgvector")]
         Temporal["Temporal Workflow Engine"]
-        Ollama["Local LLM (Gemma 2 / Ollama)"]
+        Ollama["Local LLM - Gemma 2 / Ollama"]
     end
 
     subgraph Runtime["Autonomous Agent Mesh (Python 3.11)"]
@@ -125,7 +125,7 @@ flowchart TD
         A2["2. Investigator Agent"]
         A3["3. Repairer Agent"]
         A4["4. Reviewer Agent"]
-        A5["5. Tester Agent (Docker Sandbox)"]
+        A5["5. Tester Agent - Docker Sandbox"]
     end
 
     UI -->|Telemetry & Control| API
@@ -134,10 +134,10 @@ flowchart TD
     Workflow --> Temporal
     Temporal --> Runtime
     Runtime -->|Embeddings & Memory| PG
-    Runtime -->|Inference (No Tokens)| Ollama
-    A5 -->|--network none| Sandbox["Isolated Docker Container"]
+    Runtime -->|Local Inference - Zero Token Exposure| Ollama
+    A5 -->|Isolated Network None| Sandbox["Ephemeral Docker Sandbox"]
     HumanGate -->|Cryptographic Approval| API
-    API -->|Authenticated PR Dispatch| GitHub["GitHub API (Remote PR)"]
+    API -->|Authenticated PR Dispatch| GitHub["GitHub API - Remote PR"]
 ```
 
 ---
