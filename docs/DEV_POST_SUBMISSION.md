@@ -104,6 +104,24 @@ To honor the spirit of resurrected software, SPECTER's frontend is designed arou
 - CRT phosphor terminal facts panel monitoring container flags and test telemetry.
 - Tabbed proposal viewer showing unified git diffs, adversarial security audit verdicts, and human signoff keys (`✔ SIGN & CREATE GITHUB PR`).
 
+### 📸 Application Interface & Visual Walkthrough
+
+![SPECTER 98 Retro OS Desktop Banner](https://raw.githubusercontent.com/Neet2516/hacktoberfest-dev-4/main/docs/screenshots/dashboard-hero.png)
+
+*The SPECTER 98 Desktop: Launchpad, Phosphor CRT Telemetry, and Unified System Tray.*
+
+![Zero-Leakage Credential Vault](https://raw.githubusercontent.com/Neet2516/hacktoberfest-dev-4/main/docs/screenshots/credential-vault.png)
+
+*Air-Gapped In-Memory GitHub Token Vault: Masked representation, real-time purge, and strict quarantine from AI prompt contexts.*
+
+![Coordinated 6-Agent Autonomous Mesh Controller](https://raw.githubusercontent.com/Neet2516/hacktoberfest-dev-4/main/docs/screenshots/agent-mesh.png)
+
+*Autonomous 6-Specialist Mesh Controller: Archaeologist, Investigator, Repairer, Reviewer, Tester, and Human Gate.*
+
+![Maintenance Proposal Viewer & Human Signoff Gate](https://raw.githubusercontent.com/Neet2516/hacktoberfest-dev-4/main/docs/screenshots/proposal-viewer.png)
+
+*Human Approval Gate: Side-by-side git diff review, adversarial security checks, container test results, and cryptographic PR signoff.*
+
 ---
 
 ## 🧠 Why Open Innovation Matters
