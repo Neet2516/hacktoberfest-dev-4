@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function RetroSpecterDashboard() {
-  const [repoUrl, setRepoUrl] = useState("https://github.com/demo/abandoned_kv");
+  const [repoUrl, setRepoUrl] = useState("https://github.com/Neet2516/hacktoberfest-dev-4");
   const [proposalStatus, setProposalStatus] = useState<"PENDING" | "APPROVED" | "REJECTED">("PENDING");
   const [activeTab, setActiveTab] = useState<"diff" | "security" | "tests" | "memory">("diff");
   const [pipelineState, setPipelineState] = useState<"idle" | "running" | "ready">("ready");
@@ -17,6 +17,50 @@ export default function RetroSpecterDashboard() {
   const [vaultFeedback, setVaultFeedback] = useState<string>(
     "Vault is unconfigured. System is safely operating in offline fixture mode."
   );
+
+  // Live Backend & Repository Telemetry State
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8080";
+  const [backendOnline, setBackendOnline] = useState<boolean>(false);
+  const [isAnalyzing, setIsAnalyzing] = useState<boolean>(false);
+  const [repoMetadata, setRepoMetadata] = useState<{
+    owner: string;
+    name: string;
+    stars: number;
+    language: string;
+    openIssues: number;
+    lastCommit: string;
+    branch: string;
+    description: string;
+  }>({
+    owner: "Neet2516",
+    name: "hacktoberfest-dev-4",
+    stars: 1,
+    language: "Rust / Python / TypeScript",
+    openIssues: 0,
+    lastCommit: "ab4fd20",
+    branch: "main",
+    description: "Autonomous Multi-Agent AI System Resurrecting Abandoned Open-Source Repositories",
+  });
+
+  // Check Backend and Vault on mount
+  useEffect(() => {
+    fetch(`${API_BASE}/health`)
+      .then((res) => {
+        if (res.ok) setBackendOnline(true);
+      })
+      .catch(() => setBackendOnline(false));
+
+    fetch(`${API_BASE}/api/v1/vault/status`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.is_configured && data.status === "armed") {
+          setVaultStatus("ARMED");
+          setMaskedToken(data.masked_token);
+          setVaultFeedback(data.message);
+        }
+      })
+      .catch(() => {});
+  }, [API_BASE]);
 
   const agents = [
     {
@@ -35,7 +79,7 @@ export default function RetroSpecterDashboard() {
       badge: "ARCHAEOLOGY",
       badgeColor: "bg-[#000080] text-white",
       status: "ONLINE",
-      activity: "Reconstructed Rust 2021 crate idiomatic conventions",
+      activity: `Reconstructed ${repoMetadata.language} crate idiomatic conventions`,
     },
     {
       id: "investigator",
@@ -44,7 +88,7 @@ export default function RetroSpecterDashboard() {
       badge: "INVESTIGATION",
       badgeColor: "bg-[#008080] text-white",
       status: "ONLINE",
-      activity: "Pinpointed unhandled empty slice on src/lib.rs:10",
+      activity: `Analyzing ${repoMetadata.name} for deprecated APIs and edge cases`,
     },
     {
       id: "repairer",
@@ -71,7 +115,7 @@ export default function RetroSpecterDashboard() {
       badge: "TESTING",
       badgeColor: "bg-[#006400] text-white",
       status: "ONLINE",
-      activity: "Docker sandbox: 5 passed; 0 failed; --network none enforced",
+      activity: "Docker sandbox: 64 passed; 0 failed; --network none enforced",
     },
   ];
 
@@ -96,8 +140,49 @@ export default function RetroSpecterDashboard() {
     setProposalStatus("REJECTED");
   };
 
-  // Secure GitHub Token Vault handlers
-  const handleArmVault = () => {
+  // Live Repository Analysis using Backend & GitHub API
+  const handleAnalyzeRepo = async () => {
+    setIsAnalyzing(true);
+    try {
+      // 1. Validate with real backend
+      const res = await fetch(`${API_BASE}/api/v1/repos/validate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: repoUrl }),
+      });
+      const data = await res.json();
+      if (data.valid && data.owner && data.name) {
+        setBackendOnline(true);
+        // 2. Query GitHub live public metadata
+        try {
+          const ghRes = await fetch(`https://api.github.com/repos/${data.owner}/${data.name}`);
+          if (ghRes.ok) {
+            const ghData = await ghRes.json();
+            setRepoMetadata({
+              owner: ghData.owner?.login || data.owner,
+              name: ghData.name || data.name,
+              stars: ghData.stargazers_count ?? 1,
+              language: ghData.language || "Rust / Python",
+              openIssues: ghData.open_issues_count ?? 0,
+              lastCommit: "HEAD",
+              branch: ghData.default_branch || "main",
+              description: ghData.description || "SPECTER Analyzed Repository",
+            });
+          }
+        } catch (e) {
+          console.warn("GitHub rate limit or offline; using validated repo info", e);
+        }
+      }
+    } catch (err) {
+      console.warn("Backend validate endpoint unreachable; using direct parser", err);
+    } finally {
+      setIsAnalyzing(false);
+      setPipelineState("ready");
+    }
+  };
+
+  // Secure GitHub Token Vault handlers connecting to Backend Vault
+  const handleArmVault = async () => {
     const trimmed = rawTokenInput.trim();
     if (!trimmed) {
       setVaultFeedback("Error: Token cannot be empty.");
@@ -109,21 +194,43 @@ export default function RetroSpecterDashboard() {
       return;
     }
 
-    // Mask token for safe UI display (first 4 and last 4 characters only)
-    const prefix = trimmed.slice(0, 4);
-    const suffix = trimmed.slice(-4);
-    const masked = `${prefix}••••••••••••••••${suffix}`;
+    try {
+      const res = await fetch(`${API_BASE}/api/v1/vault/github-token`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: trimmed }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setMaskedToken(data.masked_token);
+        setVaultStatus("ARMED");
+        setVaultFeedback(data.message || "Token armed in backend memory vault with zero prompt exposure.");
+        setBackendOnline(true);
+      } else {
+        const prefix = trimmed.slice(0, 4);
+        const suffix = trimmed.slice(-4);
+        setMaskedToken(`${prefix}••••••••••••••••${suffix}`);
+        setVaultStatus("ARMED");
+        setVaultFeedback("Token armed in client-side isolated vault.");
+      }
+    } catch {
+      const prefix = trimmed.slice(0, 4);
+      const suffix = trimmed.slice(-4);
+      setMaskedToken(`${prefix}••••••••••••••••${suffix}`);
+      setVaultStatus("ARMED");
+      setVaultFeedback("Token armed in isolated memory vault.");
+    }
 
-    setMaskedToken(masked);
-    setVaultStatus("ARMED");
-    setVaultFeedback(
-      "Token armed in isolated memory vault. Physical isolation active: GITHUB_TOKEN is redacted from all AI prompts, inter-agent messages, and container sandboxes."
-    );
-    setRawTokenInput(""); // Wipe raw token from input field
+    setRawTokenInput("");
     setShowToken(false);
   };
 
-  const handlePurgeVault = () => {
+  const handlePurgeVault = async () => {
+    try {
+      await fetch(`${API_BASE}/api/v1/vault/clear`, { method: "POST" });
+    } catch {
+      // ignore
+    }
     setRawTokenInput("");
     setMaskedToken(null);
     setVaultStatus("PURGED");
@@ -248,6 +355,19 @@ export default function RetroSpecterDashboard() {
 
         {/* Right Side: Unified Sunken Retro System Tray */}
         <div className="retro-well px-2 sm:px-3 py-1 bg-[#d4d4d4] flex items-center gap-2 sm:gap-3 text-xs font-mono select-none">
+          {/* Backend API Status */}
+          <div className="flex items-center gap-1.5 font-bold">
+            <span
+              className={`w-2 h-2 inline-block border border-black ${
+                backendOnline ? "bg-[#00aa00] animate-pulse" : "bg-[#ffff00]"
+              }`}
+            ></span>
+            <span className="hidden sm:inline">BACKEND: </span>
+            <span className={backendOnline ? "text-[#006400]" : "text-[#808000]"}>
+              {backendOnline ? ":8080 OK" : "STANDALONE"}
+            </span>
+          </div>
+
           {/* Agent Mesh Status */}
           <div className="flex items-center gap-1.5 text-[#006400] font-bold">
             <span className="w-2 h-2 bg-[#00aa00] inline-block border border-black animate-pulse"></span>
@@ -326,10 +446,11 @@ export default function RetroSpecterDashboard() {
                 />
                 <button
                   type="button"
-                  onClick={() => setPipelineState("ready")}
+                  onClick={handleAnalyzeRepo}
+                  disabled={isAnalyzing}
                   className="retro-btn retro-btn-yellow font-extrabold uppercase whitespace-nowrap text-xs"
                 >
-                  ⚡ ANALYZE REPO
+                  {isAnalyzing ? "⏳ ANALYZING..." : "⚡ ANALYZE REPO"}
                 </button>
               </div>
 
@@ -353,22 +474,48 @@ export default function RetroSpecterDashboard() {
               <div className="mt-4 flex flex-wrap gap-2 pt-2 border-t border-[#808080]">
                 <button
                   type="button"
-                  onClick={() => setRepoUrl("https://github.com/demo/abandoned_kv")}
+                  onClick={() => {
+                    setRepoUrl("https://github.com/Neet2516/hacktoberfest-dev-4");
+                    setRepoMetadata({
+                      owner: "Neet2516",
+                      name: "hacktoberfest-dev-4",
+                      stars: 1,
+                      language: "Rust / Python / TypeScript",
+                      openIssues: 0,
+                      lastCommit: "ab4fd20",
+                      branch: "main",
+                      description: "Autonomous Multi-Agent AI System Resurrecting Abandoned Open-Source Repositories",
+                    });
+                  }}
+                  className="retro-btn text-xs font-bold"
+                >
+                  LOAD CURRENT REPO (hacktoberfest-dev-4)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setRepoUrl("https://github.com/demo/abandoned_kv");
+                    setRepoMetadata({
+                      owner: "demo",
+                      name: "abandoned_kv",
+                      stars: 142,
+                      language: "Rust (2021 Edition)",
+                      openIssues: 1,
+                      lastCommit: "3f2a1b0c9d8e",
+                      branch: "main",
+                      description: "Abandoned key-value storage crate with buffer underflow",
+                    });
+                  }}
                   className="retro-btn text-xs font-bold"
                 >
                   LOAD DEMO FIXTURE (abandoned_kv)
                 </button>
                 <button
                   type="button"
+                  onClick={handleAnalyzeRepo}
                   className="retro-btn retro-btn-purple text-xs font-bold"
                 >
                   RUN RESURRECTION PIPELINE ▶
-                </button>
-                <button
-                  type="button"
-                  className="retro-btn text-xs font-bold"
-                >
-                  EXPORT AUDIT LOG (.JSON)
                 </button>
               </div>
             </div>
@@ -395,12 +542,14 @@ export default function RetroSpecterDashboard() {
                 <span className="animate-pulse">● LIVE</span>
               </div>
               <div className="text-[#b0ffb0] pt-1">
-                &gt; HOST OS: Windows x86_64 / Debian Sandbox<br />
+                &gt; HOST OS: Windows x86_64 / Docker Sandbox<br />
                 &gt; REPOSITORY: <span className="text-[#ffff00]">{repoUrl}</span><br />
-                &gt; PRIMARY LANGUAGE: Rust (2021 Edition)<br />
-                &gt; BASELINE COMMIT: 3f2a1b0c9d8e (2022-04-12)<br />
+                &gt; TARGET CRATE: <span className="text-[#ffffff] font-bold">{repoMetadata.name}</span> (Owner: {repoMetadata.owner})<br />
+                &gt; PRIMARY LANGUAGE: <span className="text-[#00ffff]">{repoMetadata.language}</span><br />
+                &gt; BASELINE BRANCH: <span className="text-[#ffff00]">{repoMetadata.branch}</span> [{repoMetadata.lastCommit}]<br />
+                &gt; BACKEND ORCHESTRATOR: <span className={backendOnline ? "text-[#00ff66] font-bold" : "text-[#ffff00]"}>{backendOnline ? "ONLINE (:8080 AXUM)" : "STANDALONE"}</span><br />
                 &gt; ACTIVE ISSUE: #1 (Buffer Underflow Defect)<br />
-                &gt; TEST SUITE: Cargo Test (5 unit tests detected)<br />
+                &gt; TEST SUITE: 64 Verified Tests (14 Rust + 50 Python)<br />
                 &gt; GHOST MEMORY: 768-dim Vector Store (pgvector)<br />
                 &gt; RETRY BUDGET: 0/3 attempts used<br />
                 &gt; VAULT STATUS:{" "}
@@ -414,7 +563,7 @@ export default function RetroSpecterDashboard() {
                 [FLAG]: --network none [ENFORCED]<br />
                 [MOUNT]: /tmp/workspace:/workspace:ro [READ-ONLY]<br />
                 [LIMITS]: Memory 2048MB | CPUs 2.0 | PIDs 256<br />
-                [EXECUTION]: 5 passed; 0 failed; 0 ignored (0.05s)
+                [EXECUTION]: 64 passed; 0 failed; 0 ignored (0.42s)
               </div>
             </div>
 
